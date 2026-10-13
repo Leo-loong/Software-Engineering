@@ -1,0 +1,4 @@
+FAIL
+Status Test | AssertionError: expected response to have status code 200 but got 500
+FAIL
+Body Test | JSONError: No data, empty input at 1:1 ^

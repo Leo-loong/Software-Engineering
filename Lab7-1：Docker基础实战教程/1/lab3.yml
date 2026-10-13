@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: student-service
+spec:
+  # 暴露公网必须用 NodePort
+  type: NodePort
+  ports:
+    - port: 80
+      # 代理 Pod 的 8080 端口
+      targetPort: 8080
+      # 公网暴露端口
+      nodePort: 32180
+      # 协议 TCP
+      protocol: TCP
+      name: http-port
+  # 筛选你的 Pod（按学号标签）
+  selector:
+    studentid: "24376280"

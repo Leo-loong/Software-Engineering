@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>软件开发计划书.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%AE%A1%E5%88%92%E4%B9%A6">软件开发计划书</h1>
+<blockquote>
+<ol>
+<li>
+<p>《软件开发计划》(SDP)描述开发者实施软件开发工作的计划,本文档中“软件开发”一词涵盖了新开发、修改、重用、再工程、维护和由软件产品引起的其他所有的活动。</p>
+</li>
+<li>
+<p>SDP是向需求方提供了解和监督软件开发过程、所使用的方法、每项活动的途径,项目的安排、组织及资源的一种手段。</p>
+</li>
+<li>
+<p>本课程及本实验不涉及、不强调、不关注的部分可省略，但不允许删除已有条目。</p>
+</li>
+<li>
+<p>最终文档请删除所有灰色字体和斜体等说明部分</p>
+</li>
+</ol>
+</blockquote>
+<p>[TOC]</p>
+<h2 id="1-%E5%BC%95%E8%A8%80">1 引言</h2>
+<h3 id="11-%E6%A0%87%E8%AF%86">1.1 标识</h3>
+<p><em>本条应包含本文档适用的系统和软件的完整标识,(若适用)包括标识号、标题、缩略词语、版本号和发行号。</em></p>
+<h3 id="12-%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0">1.2 系统概述</h3>
+<p><em>本条应简述本文档适用的系统和软件的用途，它应描述系统和软件的一般特性；概述系统开发运行和维护的历史；标识项目的投资方、需方、用户、开发方和支持机构；标识当前和计划的运行现场；列出其他有关的文档。</em></p>
+<h3 id="13-%E6%96%87%E6%A1%A3%E6%A6%82%E8%BF%B0">1.3 文档概述</h3>
+<p><em>本条应概述本文档的用途和内容，并描述与其使用有关的保密性和私密性的要求。</em></p>
+<h3 id="14-%E4%B8%8E%E5%85%B6%E4%BB%96%E8%AE%A1%E5%88%92%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB">1.4 与其他计划之间的关系</h3>
+<p><em>(若有)本条描述本计划和其他项目管理计划的关系。</em></p>
+<h3 id="15-%E5%9F%BA%E7%BA%BF">1.5 基线</h3>
+<p><em>给出编写本项目开发计划的输人基线，如软件需求规格说明。</em></p>
+<h2 id="2-%E5%BC%95%E7%94%A8%E6%96%87%E4%BB%B6">2 引用文件</h2>
+<p><em>本章应列出本文档引用的所有文档的编号、标题、修订版本和日期，本章也应标识不能通过正常的供货渠道获得的所有文档的来源。</em></p>
+<h2 id="3-%E4%BA%A4%E4%BB%98%E4%BA%A7%E5%93%81">3 交付产品</h2>
+<h3 id="31-%E7%A8%8B%E5%BA%8F">3.1 程序</h3>
+<p>本节列出本项目应交付的软件产品，包括要开发的软件系统及其相关功能模块：</p>
+<p><strong>用户与权限管理模块（开发）：</strong>
+ 用户界面： 包括用户注册页面、登录页面、个人信息页面等。
+ 功能需求： 实现用户注册、登录、退出登录、个人信息查看与修改等基本功能，并根据不同用户角色分配相应权限。
+ 性能要求： 保证用户登录、注册和信息查询等操作响应及时，能够满足课程项目的基本访问需求。
+ 安全性： 对用户账号和密码进行基本保护，避免未授权访问和用户信息泄露。</p>
+<p><strong>视频播放系统（开发）：</strong>
+ 用户界面： 包括首页推荐页面、视频详情页、视频播放页面、播放历史页面等。
+ 功能需求： 实现视频浏览、在线播放、暂停、进度调整、清晰度切换、历史记录查看等功能。
+ 性能要求： 保证视频播放过程基本流畅，页面响应较快，能够满足普通用户的视频观看需求。
+ 安全性： 对视频资源访问进行基本控制，保证系统运行稳定，避免异常访问影响播放功能。</p>
+<p><strong>直播系统（开发）：</strong>
+ 用户界面： 包括直播列表页面、直播详情页面、直播观看页面等。
+ 功能需求： 实现直播内容展示、直播进入与退出、直播信息查看等功能，并支持用户在直播场景下进行基本互动。
+ 性能要求： 保证直播页面能够正常加载，直播过程尽量保持稳定，减少明显卡顿和中断。
+ 安全性： 对直播内容和用户访问进行基本管理，防止非法访问和异常操作影响系统稳定性。</p>
+<p><strong>订阅系统（开发）：</strong>
+ 用户界面： 包括订阅列表页面、订阅管理页面、关注内容展示页面等。
+ 功能需求： 实现用户对视频发布者或直播频道的订阅、取消订阅、查看订阅内容更新等功能。
+ 性能要求： 保证订阅和取消订阅操作及时生效，订阅内容展示准确。
+ 安全性： 确保订阅关系数据保存正确，避免用户数据丢失或错误展示。</p>
+<p><strong>视频发布与编辑系统（开发）：</strong>
+ 用户界面： 包括视频上传页面、视频编辑页面、视频管理页面等。
+ 功能需求： 实现视频上传、视频信息填写、视频内容编辑、视频删除与管理等功能，支持内容发布者对已发布内容进行维护。
+ 性能要求： 保证视频信息提交、编辑和管理过程稳定可靠，页面交互清晰。
+ 安全性： 对上传内容和编辑权限进行控制，确保只有具备权限的用户可以发布和修改视频内容。</p>
+<p><strong>评论与搜索系统（开发）：</strong>
+ 用户界面： 包括评论区、搜索框、搜索结果页面等。
+ 功能需求： 实现用户对视频或直播内容发表评论、查看评论、进行关键词搜索，并返回相关结果。
+ 性能要求： 保证评论提交和搜索结果返回速度较快，结果展示较为准确。
+ 安全性： 对评论内容进行基本管理，避免明显不当内容影响系统正常使用，并保证搜索过程稳定可靠。</p>
+<p><strong>软件产品维护：</strong>
+对已开发的软件产品进行必要的调试、修改和完善，包括已发现问题的修复、界面优化和局部功能改进等，以保证最终交付版本能够满足课程项目要求。</p>
+<h3 id="32-%E6%96%87%E6%A1%A3">3.2 文档</h3>
+<p>本节列出了随软件产品一起交付给用户的相关文档：
+<strong>用户手册：</strong>
+ 包含软件的基本操作指南，如如何观看视频，直播观看，上传视频等。
+ 提供详细的步骤说明和截图，方便用户快速上手使用网站。
+<strong>技术文档：</strong>
+ 包括系统架构设计文档、数据库设计文档等。
+ 提供开发人员和系统管理员参考，详细描述系统的技术实现和运行原理。</p>
+<h3 id="33-%E6%9C%8D%E5%8A%A1">3.3 服务</h3>
+<p>本节描述了本项目交付的服务，包括但不限于：
+<strong>网站更新服务：</strong>
+ 提供网站的更新服务，不断增加新功能。
+ 设立问题解决流程和响应时间，保证用户问题得到及时有效的解决。
+<strong>维护服务：</strong>
+ 提供软件产品的定期维护和更新服务，包括bug修复、功能改进等。
+ 设立维护服务的周期和流程，确保软件产品持续稳定运行。</p>
+<h3 id="34-%E9%9D%9E%E7%A7%BB%E4%BA%A4%E4%BA%A7%E5%93%81">3.4 非移交产品</h3>
+<p><strong>项目开发计划草稿：</strong>
+ 包括开发过程中的阶段性记录、讨论内容和计划调整说明等，不作为最终交付内容。</p>
+<p><strong>开发过程中的中间文档：</strong>
+ 包括需求分析草稿、设计草图、临时测试记录等，仅作为开发参考，不单独移交。</p>
+<p><strong>本地开发与测试环境文件：</strong>
+ 包括本地配置文件、缓存文件、调试日志、临时生成文件等，不作为正式交付产品。</p>
+<p><strong>开发过程中的中间数据：</strong>
+ 包括测试账号、测试数据和调试过程中生成的临时数据等，仅用于开发和测试，不纳入最终移交范围。</p>
+<h3 id="35-%E9%AA%8C%E6%94%B6%E6%A0%87%E5%87%86">3.5 验收标准</h3>
+<p><strong>软件安装与部署：</strong>
+ 系统能够在规定的开发和运行环境下完成部署，并可正常启动运行。</p>
+<p><strong>功能完整性：</strong>
+ 用户与权限管理、视频播放、直播、订阅、视频发布与编辑、评论与搜索等主要功能能够基本实现并正常使用。</p>
+<p><strong>软件质量：</strong>
+ 系统运行较为稳定，界面与交互较为完整，测试中发现的主要问题已得到修复，能够满足课程项目的基本质量要求。</p>
+<p><strong>文档完整性：</strong>
+ 项目提交的开发计划书、需求说明、设计说明、测试文档和部署说明内容较完整，能够反映项目开发全过程。</p>
+<p><strong>安全性和可靠性：</strong>
+ 系统具备基本的账号访问控制和数据保护措施，能够避免明显的数据错误和异常操作。</p>
+<h3 id="36-%E6%9C%80%E5%90%8E%E4%BA%A4%E4%BB%98%E6%9C%9F%E9%99%90">3.6 最后交付期限</h3>
+<p><strong>项目启动日期：</strong> 2026年4月1日
+<strong>开发计划完成日期：</strong> 2026年4月19日
+<strong>需求规格完成日期：</strong> 2026年4月26日
+<strong>概要设计结束日期：</strong> 2026年5月10日
+<strong>详细设计结束日期：</strong> 2026年5月24日
+<strong>实现阶段结束日期：</strong> 2026年5月31日
+<strong>测试阶段结束日期：</strong> 2026年6月7日
+<strong>项目交付验收日期：</strong> 2026年6月14日</p>
+<h2 id="4-%E6%89%80%E9%9C%80%E5%B7%A5%E4%BD%9C%E6%A6%82%E8%BF%B0">4 所需工作概述</h2>
+<p><strong>系统和软件的需求与约束</strong></p>
+<p><strong>需求</strong></p>
+<ol>
+<li>功能需求：开发一个名为“doinb”的视频播放软件，系统主要包括用户与权限管理、视频播放、直播、订阅、视频发布与编辑、评论与搜索等功能模块。</li>
+<li>用户需求：系统应便于用户操作，界面清晰，能够满足普通用户观看视频、观看直播、进行评论和订阅，以及内容发布者上传和管理视频的基本需求。</li>
+<li>过程需求：项目需体现从需求分析、系统设计到编码实现、测试和部署的完整软件开发过程，符合课程实践要求。</li>
+</ol>
+<p><strong>约束</strong></p>
+<ol>
+<li>时间约束：项目需在课程规定时间内完成，并按节点提交相应文档和阶段成果。</li>
+<li>质量约束：系统应保证基本功能完整、运行稳定、界面友好，并尽量减少明显错误。</li>
+<li>技术约束：项目开发应基于现有学习基础和常用开发工具完成，重点突出系统实现能力和软件工程过程。</li>
+</ol>
+<p><strong>项目文档编制的需求和约束</strong></p>
+<p><strong>需求</strong></p>
+<ol>
+<li>项目计划书：说明项目目标、开发安排、进度计划和资源分配等内容。</li>
+<li>需求说明书：明确系统功能需求、非功能需求、用户角色及业务流程。</li>
+<li>设计文档：描述系统架构、数据库设计、模块划分和接口设计等内容。</li>
+<li>测试文档：记录测试过程、测试结果及存在问题的修改情况。</li>
+<li>部署或使用文档：说明系统运行环境、部署方法和基本使用步骤。</li>
+</ol>
+<p><strong>约束</strong></p>
+<ol>
+<li>文档内容应结构清晰、表述准确，并与项目实际实现情况保持一致。</li>
+<li>文档应随着项目进展及时补充和完善，能够真实反映开发过程。</li>
+</ol>
+<p><strong>系统生命周期中的位置</strong></p>
+<p>本项目处于系统生命周期的前期与实施阶段，主要完成需求分析、系统设计、软件实现、测试验证和部署准备等工作。项目完成后，可进入后续的功能完善与优化阶段，但本次课程作业重点在于完成一个可运行的基础版本并形成相关开发文档。</p>
+<p><strong>计划/采购策略</strong></p>
+<p><strong>计划策略</strong></p>
+<ol>
+<li>采用模块化设计思想，将系统划分为用户与权限管理、视频播放、直播、订阅、视频发布与编辑、评论与搜索等若干模块，便于分阶段开发与测试。</li>
+<li>采用迭代式开发方式，先完成核心功能，再根据开发进度和测试情况进行修改和完善。</li>
+</ol>
+<p><strong>项目进度安排及资源的需求与约束</strong></p>
+<p><strong>进度安排</strong></p>
+<ol>
+<li>需求分析阶段：完成系统功能梳理、用户角色分析和需求整理。</li>
+<li>系统设计阶段：完成系统架构设计、数据库设计和页面设计。</li>
+<li>编码实现阶段：按照模块划分完成前后端功能开发。</li>
+<li>测试修改阶段：对系统主要功能进行测试，修复已发现的问题并完善细节。</li>
+<li>部署整理阶段：完成系统运行环境配置、项目演示准备和文档整理工作。</li>
+</ol>
+<p><strong>资源需求</strong></p>
+<ol>
+<li>人员资源：由课程小组成员共同完成项目分析、设计、编码、测试和文档编写工作。</li>
+<li>技术资源：包括开发工具、数据库系统、本地运行环境及必要的测试环境。</li>
+<li>设备资源：主要依赖开发者个人计算机及课程允许使用的相关软件平台。</li>
+</ol>
+<p><strong>约束</strong></p>
+<ol>
+<li>人员规模有限，任务分工应尽量明确，保证项目能够按时推进。</li>
+<li>开发资源主要来源于现有学习和实验条件，应在有限条件下合理安排实现内容。</li>
+</ol>
+<h2 id="5-%E5%AE%9E%E6%96%BD%E6%95%B4%E4%B8%AA%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B4%BB%E5%8A%A8%E7%9A%84%E8%AE%A1%E5%88%92">5 实施整个软件开发活动的计划</h2>
+<p><em>本章分以下几条。不需要的活动的条款用“不适用”注明，如果对项目中不同的开发阶段或不同的软件需要不同的计划，这些不同之处应在此条加以注解。除以下规定的内容外，每条中还应标识可适用的风险和不确定因素,及处理它们的计划。</em></p>
+<h3 id="51-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B">5.1 软件开发过程</h3>
+<p><em>本条应描述要采用的软件开发过程。计划应覆盖论及它的所有合同条款，确定已计划的开发阶段(适用的话)、目标和各阶段要执行的软件开发活动。</em></p>
+<h3 id="52-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%80%BB%E4%BD%93%E7%8A%B6%E6%80%81">5.2 软件开发总体状态</h3>
+<p><strong>本条分以下若干条进行描述。</strong></p>
+<h4 id="521-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%96%B9%E6%B3%95">5.2.1 软件开发方法</h4>
+<p>本项目采用适合课程实践的迭代式开发方法，以“需求分析、系统设计、编码实现、测试修改、部署整理”为主要开发主线。考虑到项目规模适中、开发周期较短，在开发过程中按照先完成核心功能、后优化完善的思路推进，以保证系统能够在规定时间内完成。</p>
+<p><strong>软件开发方法的关键特点：</strong></p>
+<ol>
+<li>以需求为起点，先明确系统目标、用户角色和主要功能模块，再开展设计与实现工作。</li>
+<li>采用模块化开发方式，将系统划分为用户与权限管理、视频播放、直播、订阅、视频发布与编辑、评论与搜索等模块，便于分别开发与测试。</li>
+<li>在编码过程中同步进行调试与修改，及时发现问题并进行优化，减少后期集中返工。</li>
+<li>在阶段性开发完成后进行测试和总结，根据测试结果对系统界面、功能和性能进行适当调整。</li>
+</ol>
+<p><strong>支持开发的工具和过程：</strong></p>
+<ol>
+<li>使用常见集成开发环境、版本管理工具和数据库管理工具辅助开发。</li>
+<li>通过文档编写、阶段性检查和测试记录等方式，对开发过程中的关键活动进行管理和跟踪。</li>
+<li>在项目推进过程中结合课程安排，按阶段完成需求、设计、实现和测试相关内容。</li>
+</ol>
+<h4 id="522-%E8%BD%AF%E4%BB%B6%E4%BA%A7%E5%93%81%E6%A0%87%E5%87%86">5.2.2 软件产品标准</h4>
+<p>本项目在需求表达、系统设计、编码实现和测试过程中遵循统一、清晰、易理解、便于维护的基本标准，以保证软件产品质量满足项目要求。</p>
+<p><strong>需求表达与设计标准</strong></p>
+<ol>
+<li>需求描述应尽量明确，避免歧义，能够反映系统主要功能、用户角色和业务流程。</li>
+<li>设计文档应清晰说明系统架构、模块划分、数据库设计、页面结构和接口关系。</li>
+<li>需求文档和设计文档应保持一致，后续实现若有调整，应及时在文档中补充说明。</li>
+</ol>
+<p><strong>编码标准</strong></p>
+<ol>
+<li>代码应采用统一的缩进、空格、命名和文件组织方式，保证整体风格一致。</li>
+<li>变量名、函数名、类名和模块名应能够反映其实际作用，避免使用含义不明的命名方式。</li>
+<li>对于较复杂的逻辑、关键接口和重要数据处理过程，应添加必要注释进行说明；对于结构简单、语义清晰的代码，不强制逐行注释。</li>
+<li>功能实现应尽量模块化，避免单个函数或模块过于复杂，提高代码可读性和可维护性。</li>
+</ol>
+<p><strong>测试标准</strong></p>
+<ol>
+<li>测试内容应覆盖主要功能点、常见输入情况和基本异常情况。</li>
+<li>测试过程应记录测试项、预期结果、实际结果和发现的问题，便于后续修改和总结。</li>
+<li>对于测试中发现的问题，应及时修复并进行再测试，以保证最终系统基本稳定可用。</li>
+</ol>
+<h4 id="523-%E5%8F%AF%E9%87%8D%E7%94%A8%E7%9A%84%E8%BD%AF%E4%BB%B6%E4%BA%A7%E5%93%81">5.2.3 可重用的软件产品</h4>
+<h5 id="5231-%E5%90%B8%E7%BA%B3%E5%8F%AF%E9%87%8D%E7%94%A8%E7%9A%84%E8%BD%AF%E4%BB%B6%E4%BA%A7%E5%93%81">5.2.3.1 吸纳可重用的软件产品</h5>
+<p><strong>1. 搜寻范围：</strong>
+ 参考的市面已有APP如B站，抖音，学习其页面布局及服务模式
+ 内部资源：参考已编写代码，充分利用可复用性内容，保证代码的简介清晰
+<strong>2. 评估标准：</strong>
+ 功能匹配度： 确保可重用软件产品提供的功能与“doinb”系统需求高度契合，能够集成到现有架构中。
+ 兼容性： 检查软件产品的接口、数据格式等是否与现有系统兼容，避免引入不必要的适配工作。
+ 性能与可靠性： 考察软件产品的性能指标、负载能力、故障恢复机制等，确保其能满足系统高并发、高可用的要求。
+ 安全性与合规性： 评估软件产品的安全防护措施、隐私保护政策等，确保符合相关法律法规及行业标准。
+ 维护与升级： 考虑软件产品的活跃度、更新频率、文档完备性等因素，确保其长期可持续发展
+<strong>3. 选取说明：</strong>
+ 项目文档详细记录选择软件产品的名称、版本、许可证等信息，并标注在“doinb”中的具体功能
+ 及时评估优缺点，在文档中进行记录，并写出引用的必要性
+ 写出潜在的风险和安全性问题，并指定安全策略</p>
+<h5 id="5232-%E5%BC%80%E5%8F%91%E5%8F%AF%E9%87%8D%E7%94%A8%E7%9A%84%E8%BD%AF%E4%BB%B6%E4%BA%A7%E5%93%81">5.2.3.2 开发可重用的软件产品</h5>
+<p><strong>标识：</strong>
+ 项目初期，在需求分析、架构设计等阶段，识别出可能具有通用性、复用价值的模块或组件
+ 项目开发阶段，持续关注代码复用性，及时抓住可重用软件产品开发机会
+<strong>评估：</strong>
+ 对于被标识出的部分，与团队成员讨论其开发价值与技术难度，市场应用度
+<strong>报告：</strong>
+ 定期在项目进度报告中更新可重用软件产品的开发进展，包括已完成的产品、正在进行的开发任务以及未来规划
+ 通过上述方法，我们旨在构建一个既充分利用现有资源，又能持续产生内部可重用资产的开发环境，提升“doinb”系统的开发效率与质量，同时为未来的项目开发积累宝贵的软件资产。</p>
+<h4 id="524-%E5%A4%84%E7%90%86%E5%85%B3%E9%94%AE%E6%80%A7%E8%AF%B7%E6%B1%82">5.2.4 处理关键性请求</h4>
+<p>本条分以下若干条描述系统在关键性需求方面的基本处理方式。</p>
+<h5 id="5241-%E5%AE%89%E5%85%A8%E6%80%A7%E4%BF%9D%E8%AF%81">5.2.4.1 安全性保证</h5>
+<p><strong>为确保网站的安全性，我们将采取以下措施：</strong>
+ 实施强密码政策，并定期更新以防止未授权访问。
+ 采用安全的数据传输协议（如HTTPS）保护用户数据在传输过程中的安全。
+ 使用防火墙和入侵检测系统来监控和防止恶意攻击。
+ 定期进行安全漏洞扫描和修补，确保系统的安全性。
+ <strong>实施端到端加密：</strong> 所有用户数据，包括支付信息、个人资料和旅行细节，将通过端到端加密保护，确保数据在传输过程中的安全。
+ 定期安全审计： 邀请外部安全专家定期进行系统审计，以识别和修复潜在的安全漏洞。
+ 多因素认证： 为提升账户安全，引入邮箱认证，确保敏感操作（如支付和个人信息更改）的安全
+性。</p>
+<h5 id="5242-%E4%BF%9D%E5%AF%86%E6%80%A7%E4%BF%9D%E8%AF%81">5.2.4.2 保密性保证</h5>
+<p> 所有用户数据将加密存储，确保未经授权无法访问用户的敏感信息。
+ 对于处理用户数据的员工实施严格的访问控制和审计跟踪，确保数据仅被授权人员访问。
+ 定期对员工进行数据保护和隐私保护培训，强化保密意识。
+ 合作方数据处理协议： 与所有第三方服务供应商签订严格的数据处理协议，确保他们遵循与我们相同的保密标准。</p>
+<h5 id="5243-%E7%A7%81%E5%AF%86%E6%80%A7%E5%8D%8F%E8%AE%AE">5.2.4.3 私密性协议</h5>
+<p> 开发和维护阶段将与所有参与者签署严格的保密协议，确保所有的信息和数据仅限于项目范围内使用。
+对客户数据的访问将遵守最小必要原则，确保仅在必要时才能访问相关信息。
+ 用户数据隔离： 确保用户数据存储在隔离的环境中，以防止数据间的未授权访问或泄露。
+ 隐私政策透明化： 制定明确的隐私政策，详细说明数据收集、使用和存储的方式，确保用户了解其信息的处理方式。</p>
+<h5 id="5244-%E5%85%B6%E4%BB%96%E5%85%B3%E9%94%AE%E6%80%A7%E9%9C%80%E6%B1%82%E6%A0%87%E5%87%86">5.2.4.4 其他关键性需求标准</h5>
+<p> 确保系统符合行业标准和法律法规，包括但不限于数据保护和隐私法规。
+ 定期评估和更新安全、隐私和保密策略以应对新的威胁和挑战。
+ 响应时间保证： 确保系统所有功能的响应时间在用户可接受的范围内，特别是对于关键功能。
+ 可用性保证： 通过构建高可用的系统架构和实施故障切换策略，确保系统99.9%的时间在线可用。</p>
+<h4 id="525-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6%E8%B5%84%E6%BA%90%E5%88%A9%E7%94%A8">5.2.5 计算机硬件资源利用</h4>
+<p> 将根据软件的性能需求和预期用户负载来分配足够的硬件资源。
+ 采用监控工具来实时跟踪硬件资源的使用情况，确保资源的高效利用。
+ 在资源使用接近上限时及时进行扩展或优化，避免因资源不足导致的服务中断。</p>
+<h4 id="526-%E8%AE%B0%E5%BD%95%E5%8E%9F%E7%90%86">5.2.6 记录原理</h4>
+<p> 本项目将通过项目文档、代码版本记录、测试记录和问题修改记录等方式，对开发过程中的关键决策进行记录。这里的关键决策主要包括功能模块划分、数据库设计、技术选型、界面调整和问题修复方案等。相关记录可保存在项目文档、版本管理记录和测试说明中，便于后续总结与检查。</p>
+<h3 id="527-%E9%9C%80%E6%96%B9%E8%AF%84%E5%AE%A1%E9%80%94%E5%BE%84">5.2.7 需方评审途径</h3>
+<p> <strong>定期评审会议：</strong> 设定定期的评审会议，允许需方或其授权代表参与，审查软件产品的进展、活动和即将到来的里程碑。
+ <strong>开放通道：</strong> 为需方提供一个直接与开发团队沟通的渠道，以便快速反馈和解决关键问题。
+ <strong>试用期反馈：</strong> 在软件发布前后设定试用期，收集需方的反馈，并根据反馈进行调整，以确保产品满足需方的期望和需求。</p>
+<h2 id="6-%E5%AE%9E%E6%96%BD%E8%AF%A6%E7%BB%86%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B4%BB%E5%8A%A8%E7%9A%84%E8%AE%A1%E5%88%92">6 实施详细软件开发活动的计划</h2>
+<p><em>本章分条进行描述。不需要的活动用“不适用”注明,如果项目的不同的开发阶段或不同的软件需要不同的计划,则在本条应指出这些差异。每项活动的论述应包括应用于以下方面的途径(方法/过程/工具):</em></p>
+<ul>
+<li><em>所涉及的分析性任务或其他技术性任务;</em></li>
+<li><em>结果的记录；</em></li>
+<li><em>与交付有关的准备(如果有的话)。</em></li>
+</ul>
+<p><em>论述还应标识存在的风险和不确定因素,及处理它们的计划。如果适用的方法在 5.2.1处描述了的话,可引用它。</em></p>
+<h3 id="61-%E9%A1%B9%E7%9B%AE%E8%AE%A1%E5%88%92%E5%92%8C%E7%9B%91%E7%9D%A3">6.1 项目计划和监督</h3>
+<p><em>本条分成若干分条描述项目计划和监督中要遵循的方法。各分条的计划应覆盖合同中论及它的所有条款。</em></p>
+<h4 id="611-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%AE%A1%E5%88%92%E5%8C%85%E6%8B%AC%E5%AF%B9%E8%AF%A5%E8%AE%A1%E5%88%92%E7%9A%84%E6%9B%B4%E6%96%B0">6.1.1 软件开发计划（包括对该计划的更新）</h4>
+<h4 id="612-csci%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92">6.1.2 CSCI测试计划</h4>
+<h4 id="613-%E7%B3%BB%E7%BB%9F%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92">6.1.3 系统测试计划</h4>
+<h4 id="614-%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E8%AE%A1%E5%88%92">6.1.4 软件安装计划</h4>
+<h4 id="615-%E8%BD%AF%E4%BB%B6%E7%A7%BB%E4%BA%A4%E8%AE%A1%E5%88%92">6.1.5 软件移交计划</h4>
+<h4 id="616-%E8%B7%9F%E8%B8%AA%E5%92%8C%E6%9B%B4%E6%96%B0%E8%AE%A1%E5%88%92%E5%8C%85%E6%8B%AC%E8%AF%84%E5%AE%A1%E7%AE%A1%E7%90%86%E7%9A%84%E6%97%B6%E9%97%B4%E9%97%B4%E9%9A%94">6.1.6 跟踪和更新计划，包括评审管理的时间间隔</h4>
+<h3 id="62-%E5%BB%BA%E7%AB%8B%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83">6.2 建立软件开发环境</h3>
+<h4 id="621-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%8E%AF%E5%A2%83">6.2.1 软件工程环境</h4>
+<h4 id="622-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83">6.2.2 软件测试环境</h4>
+<h4 id="623-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%BA%93">6.2.3 软件开发库</h4>
+<h4 id="624-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3">6.2.4 软件开发文档</h4>
+<h4 id="625-%E9%9D%9E%E4%BA%A4%E4%BB%98%E6%96%87%E4%BB%B6">6.2.5 非交付文件</h4>
+<h3 id="63-%E7%B3%BB%E7%BB%9F%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90">6.3 系统需求分析</h3>
+<h4 id="631-%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5%E5%88%86%E6%9E%90">6.3.1 用户输入分析</h4>
+<h4 id="632-%E8%BF%90%E8%A1%8C%E6%A6%82%E5%BF%B5">6.3.2 运行概念</h4>
+<h4 id="633-%E7%B3%BB%E7%BB%9F%E9%9C%80%E6%B1%82">6.3.3 系统需求</h4>
+<h3 id="64-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1">6.4 系统设计</h3>
+<h4 id="641-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E5%86%B3%E7%AD%96">6.4.1 系统设计决策</h4>
+<h4 id="642-%E7%B3%BB%E7%BB%9F%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1">6.4.2 系统体系结构设计</h4>
+<h3 id="65-%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90">6.5 软件需求分析</h3>
+<h3 id="66-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1">6.6 软件设计</h3>
+<h4 id="661-csci%E7%BA%A7%E8%AE%BE%E8%AE%A1%E5%86%B3%E7%AD%96">6.6.1 CSCI级设计决策</h4>
+<h4 id="662-%E7%B3%BB%E7%BB%9F%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1">6.6.2 系统体系结构设计</h4>
+<h4 id="663-csci%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1">6.6.3 CSCI详细设计</h4>
+<h3 id="67-%E8%BD%AF%E4%BB%B6%E5%AE%9E%E7%8E%B0%E5%92%8C%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%B5%8B%E8%AF%95">6.7 软件实现和配置项测试</h3>
+<h4 id="671-%E8%BD%AF%E4%BB%B6%E5%AE%9E%E7%8E%B0">6.7.1 软件实现</h4>
+<h4 id="672-%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%B5%8B%E8%AF%95%E5%87%86%E5%A4%87">6.7.2 配置项测试准备</h4>
+<h4 id="673-%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%B5%8B%E8%AF%95%E6%89%A7%E8%A1%8C">6.7.3 配置项测试执行</h4>
+<h4 id="674-%E4%BF%AE%E6%94%B9%E5%92%8C%E5%86%8D%E6%B5%8B%E8%AF%95">6.7.4 修改和再测试</h4>
+<h4 id="675-%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%B0%E5%BD%95">6.7.5 配置项测试结果分析与记录</h4>
+<h3 id="68-%E9%85%8D%E7%BD%AE%E9%A1%B9%E9%9B%86%E6%88%90%E5%92%8C%E6%B5%8B%E8%AF%95">6.8 配置项集成和测试</h3>
+<h4 id="681-%E9%85%8D%E7%BD%AE%E9%A1%B9%E9%9B%86%E6%88%90%E5%92%8C%E6%B5%8B%E8%AF%95%E5%87%86%E5%A4%87">6.8.1 配置项集成和测试准备</h4>
+<h4 id="682-%E9%85%8D%E7%BD%AE%E9%A1%B9%E9%9B%86%E6%88%90%E5%92%8C%E6%B5%8B%E8%AF%95%E6%89%A7%E8%A1%8C">6.8.2 配置项集成和测试执行</h4>
+<h4 id="683-%E4%BF%AE%E6%94%B9%E5%92%8C%E5%86%8D%E6%B5%8B%E8%AF%95">6.8.3 修改和再测试</h4>
+<h4 id="684-%E9%85%8D%E7%BD%AE%E9%A1%B9%E9%9B%86%E6%88%90%E5%92%8C%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%B0%E5%BD%95">6.8.4 配置项集成和测试结果分析与记录</h4>
+<h3 id="69-csci%E5%90%88%E6%A0%BC%E6%80%A7%E6%B5%8B%E8%AF%95">6.9 CSCI合格性测试</h3>
+<h4 id="691-csci%E5%90%88%E6%A0%BC%E6%80%A7%E6%B5%8B%E8%AF%95%E7%9A%84%E7%8B%AC%E7%AB%8B%E6%80%A7">6.9.1 CSCI合格性测试的独立性</h4>
+<h4 id="692-%E5%9C%A8%E7%9B%AE%E6%A0%87%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%88%96%E6%A8%A1%E6%8B%9F%E7%9A%84%E7%8E%AF%E5%A2%83%E4%B8%8A%E6%B5%8B%E8%AF%95">6.9.2 在目标计算机系统（或模拟的环境）上测试</h4>
+<h4 id="693-csci%E5%90%88%E6%A0%BC%E6%80%A7%E6%B5%8B%E8%AF%95%E5%87%86%E5%A4%87">6.9.3 CSCI合格性测试准备</h4>
+<h4 id="694-csci%E5%90%88%E6%A0%BC%E6%80%A7%E6%B5%8B%E8%AF%95%E6%BC%94%E7%BB%83">6.9.4 CSCI合格性测试演练</h4>
+<h4 id="695-csci%E5%90%88%E6%A0%BC%E6%80%A7%E6%B5%8B%E8%AF%95%E6%89%A7%E8%A1%8C">6.9.5 CSCI合格性测试执行</h4>
+<h4 id="696-%E4%BF%AE%E6%94%B9%E5%92%8C%E5%86%8D%E6%B5%8B%E8%AF%95">6.9.6 修改和再测试</h4>
+<h4 id="697-csci%E5%90%88%E6%A0%BC%E6%80%A7%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%B0%E5%BD%95">6.9.7 CSCI合格性测试结果分析与记录</h4>
+<h3 id="610-cscihwci%E9%9B%86%E6%88%90%E5%92%8C%E6%B5%8B%E8%AF%95">6.10 CSCI/HWCI集成和测试</h3>
+<h4 id="6101-cscihwci%E9%9B%86%E6%88%90%E5%92%8C%E6%B5%8B%E8%AF%95%E5%87%86%E5%A4%87">6.10.1 CSCI/HWCI集成和测试准备</h4>
+<h4 id="6102-cscihwci%E9%9B%86%E6%88%90%E5%92%8C%E6%B5%8B%E8%AF%95%E6%89%A7%E8%A1%8C">6.10.2 CSCI/HWCI集成和测试执行</h4>
+<h4 id="6103-%E4%BF%AE%E6%94%B9%E5%92%8C%E5%86%8D%E6%B5%8B%E8%AF%95">6.10.3 修改和再测试</h4>
+<h4 id="6104-cscihwci%E9%9B%86%E6%88%90%E5%92%8C%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%B0%E5%BD%95">6.10.4 CSCI/HWCI集成和测试结果分析与记录</h4>
+<h3 id="611-%E7%B3%BB%E7%BB%9F%E5%90%88%E6%A0%BC%E6%80%A7%E6%B5%8B%E8%AF%95">6.11 系统合格性测试</h3>
+<h4 id="6111-%E7%B3%BB%E7%BB%9F%E5%90%88%E6%A0%BC%E6%80%A7%E6%B5%8B%E8%AF%95%E7%9A%84%E7%8B%AC%E7%AB%8B%E6%80%A7">6.11.1 系统合格性测试的独立性</h4>
+<h4 id="6112-%E5%9C%A8%E7%9B%AE%E6%A0%87%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%88%96%E6%A8%A1%E6%8B%9F%E7%9A%84%E7%8E%AF%E5%A2%83%E4%B8%8A%E6%B5%8B%E8%AF%95">6.11.2 在目标计算机系统（或模拟的环境）上测试</h4>
+<h4 id="6113-%E7%B3%BB%E7%BB%9F%E5%90%88%E6%A0%BC%E6%80%A7%E6%B5%8B%E8%AF%95%E5%87%86%E5%A4%87">6.11.3 系统合格性测试准备</h4>
+<h4 id="6114-%E7%B3%BB%E7%BB%9F%E5%90%88%E6%A0%BC%E6%80%A7%E6%B5%8B%E8%AF%95%E6%BC%94%E7%BB%83">6.11.4 系统合格性测试演练</h4>
+<h4 id="6115-%E7%B3%BB%E7%BB%9F%E5%90%88%E6%A0%BC%E6%80%A7%E6%B5%8B%E8%AF%95%E6%89%A7%E8%A1%8C">6.11.5 系统合格性测试执行</h4>
+<h4 id="6116-%E4%BF%AE%E6%94%B9%E5%92%8C%E5%86%8D%E6%B5%8B%E8%AF%95">6.11.6 修改和再测试</h4>
+<h4 id="6117-%E7%B3%BB%E7%BB%9F%E5%90%88%E6%A0%BC%E6%80%A7%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%B0%E5%BD%95">6.11.7 系统合格性测试结果分析与记录</h4>
+<h3 id="612-%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%87%86%E5%A4%87">6.12 软件使用准备</h3>
+<h4 id="6121-%E5%8F%AF%E6%89%A7%E8%A1%8C%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%87%86%E5%A4%87">6.12.1 可执行软件的准备</h4>
+<h4 id="6122-%E7%94%A8%E6%88%B7%E7%8E%B0%E5%9C%BA%E7%9A%84%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E%E5%87%86%E5%A4%87">6.12.2 用户现场的版本说明准备</h4>
+<h4 id="6123-%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C%E7%9A%84%E5%87%86%E5%A4%87">6.12.3 用户手册的准备</h4>
+<h4 id="6124-%E5%9C%A8%E7%94%A8%E6%88%B7%E7%8E%B0%E5%9C%BA%E5%AE%89%E8%A3%85">6.12.4 在用户现场安装</h4>
+<h3 id="613-%E8%BD%AF%E4%BB%B6%E7%A7%BB%E4%BA%A4%E5%87%86%E5%A4%87">6.13 软件移交准备</h3>
+<h4 id="6131-%E5%8F%AF%E6%89%A7%E8%A1%8C%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%87%86%E5%A4%87">6.13.1 可执行软件的准备</h4>
+<h4 id="6132-%E6%BA%90%E6%96%87%E4%BB%B6%E5%87%86%E5%A4%87">6.13.2 源文件准备</h4>
+<h4 id="6133-%E6%94%AF%E6%8C%81%E7%8E%B0%E5%9C%BA%E7%9A%84%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E%E7%9A%84%E5%87%86%E5%A4%87">6.13.3 支持现场的版本说明的准备</h4>
+<h4 id="6134-%E5%B7%B2%E5%AE%8C%E6%88%90%E7%9A%84csci%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%85%B6%E4%BB%96%E7%9A%84%E8%BD%AF%E4%BB%B6%E6%94%AF%E6%8C%81%E4%BF%A1%E6%81%AF%E7%9A%84%E5%87%86%E5%A4%87">6.13.4 “已完成”的CSCI设计和其他的软件支持信息的准备</h4>
+<h4 id="6135-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E8%AF%B4%E6%98%8E%E7%9A%84%E6%9B%B4%E6%96%B0">6.13.5 系统设计说明的更新</h4>
+<h4 id="6136-%E6%94%AF%E6%8C%81%E6%89%8B%E5%86%8C%E7%9A%84%E5%87%86%E5%A4%87">6.13.6 支持手册的准备</h4>
+<h4 id="6137-%E5%88%B0%E6%8C%87%E5%AE%9A%E6%94%AF%E6%8C%81%E7%8E%B0%E5%9C%BA%E7%9A%84%E7%A7%BB%E4%BA%A4">6.13.7 到指定支持现场的移交</h4>
+<h3 id="614-%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86">6.14 软件配置管理</h3>
+<h4 id="6141%E9%85%8D%E7%BD%AE%E6%A0%87%E8%AF%86">6.14.1配置标识</h4>
+<h4 id="6142-%E9%85%8D%E7%BD%AE%E6%8E%A7%E5%88%B6">6.14.2 配置控制</h4>
+<h4 id="6143-%E9%85%8D%E7%BD%AE%E7%8A%B6%E6%80%81%E7%BB%9F%E8%AE%A1">6.14.3 配置状态统计</h4>
+<h4 id="6144-%E9%85%8D%E7%BD%AE%E5%AE%A1%E6%A0%B8">6.14.4 配置审核</h4>
+<h4 id="6145-%E5%8F%91%E8%A1%8C%E7%AE%A1%E7%90%86%E5%92%8C%E4%BA%A4%E4%BB%98">6.14.5 发行管理和交付</h4>
+<h3 id="615-%E8%BD%AF%E4%BB%B6%E4%BA%A7%E5%93%81%E8%AF%84%E4%BC%B0">6.15 软件产品评估</h3>
+<h4 id="6151-%E4%B8%AD%E9%97%B4%E9%98%B6%E6%AE%B5%E7%9A%84%E5%92%8C%E6%9C%80%E7%BB%88%E7%9A%84%E8%BD%AF%E4%BB%B6%E4%BA%A7%E5%93%81%E8%AF%84%E4%BC%B0">6.15.1 中间阶段的和最终的软件产品评估</h4>
+<h4 id="6152-%E8%BD%AF%E4%BB%B6%E4%BA%A7%E5%93%81%E8%AF%84%E4%BC%B0%E8%AE%B0%E5%BD%95">6.15.2 软件产品评估记录</h4>
+<h4 id="6153-%E8%BD%AF%E4%BB%B6%E4%BA%A7%E5%93%81%E8%AF%84%E4%BC%B0%E7%9A%84%E7%8B%AC%E7%AB%8B%E6%80%A7">6.15.3 软件产品评估的独立性</h4>
+<h3 id="616-%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%BF%9D%E8%AF%81">6.16 软件质量保证</h3>
+<h4 id="6161-%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%BF%9D%E8%AF%81%E8%AF%84%E4%BC%B0">6.16.1 软件质量保证评估</h4>
+<h4 id="6162-%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%BF%9D%E8%AF%81%E8%AE%B0%E5%BD%95%E5%8C%85%E6%8B%AC%E6%89%80%E8%AE%B0%E5%BD%95%E7%9A%84%E5%85%B7%E4%BD%93%E6%9D%A1%E7%9B%AE">6.16.2 软件质量保证记录、包括所记录的具体条目</h4>
+<h4 id="6163-%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%BF%9D%E8%AF%81%E7%9A%84%E7%8B%AC%E7%AB%8B%E6%80%A7">6.16.3 软件质量保证的独立性</h4>
+<h3 id="617-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E8%BF%87%E7%A8%8B%E6%9B%B4%E6%AD%A3%E6%B4%BB%E5%8A%A8">6.17 问题解决过程（更正活动）</h3>
+<h4 id="6171-%E9%97%AE%E9%A2%98%E5%8F%98%E6%9B%B4%E6%8A%A5%E5%91%8A">6.17.1 问题/变更报告</h4>
+<p><em>它包括要记录的具体条目(可选的条目包括:项目名称,提出者,问题编号,问题名称,受影响的软件元素或文档,发生日期,类别和优先级,描述,指派的该问题的分析者,指派日期,完成日期,分析时间,推荐的解决方案,影响,问题状态,解决方案的批准,随后的动作,更正者,更正日期,被更正的版本,更正时间,已实现的解决方案的描述)。</em></p>
+<h4 id="6172-%E6%9B%B4%E6%AD%A3%E6%B4%BB%E5%8A%A8%E7%B3%BB%E7%BB%9F">6.17.2 更正活动系统</h4>
+<h3 id="618-%E8%81%94%E5%90%88%E8%AF%84%E5%AE%A1%E8%81%94%E5%90%88%E6%8A%80%E6%9C%AF%E8%AF%84%E5%AE%A1%E5%92%8C%E8%81%94%E5%90%88%E7%AE%A1%E7%90%86%E8%AF%84%E5%AE%A1">6.18 联合评审（联合技术评审和联合管理评审）</h3>
+<h4 id="6181-%E8%81%94%E5%90%88%E6%8A%80%E6%9C%AF%E8%AF%84%E5%AE%A1%E5%8C%85%E6%8B%AC%E4%B8%80%E7%BB%84%E5%BB%BA%E8%AE%AE%E7%9A%84%E8%AF%84%E5%AE%A1">6.18.1 联合技术评审包括一组建议的评审</h4>
+<h4 id="6182-%E8%81%94%E5%90%88%E7%AE%A1%E7%90%86%E8%AF%84%E5%AE%A1%E5%8C%85%E6%8B%AC%E4%B8%80%E7%BB%84%E5%BB%BA%E8%AE%AE%E7%9A%84%E8%AF%84%E5%AE%A1">6.18.2 联合管理评审包括一组建议的评审</h4>
+<h3 id="619-%E6%96%87%E6%A1%A3%E7%BC%96%E5%88%B6">6.19 文档编制</h3>
+<p><em>本条应分成若干分条描述文档编制要遵循的方法。各分条的计划应覆盖合同中论及它的所有条款。应遵循本标准第5章文档编制过程中的有关文档编制计划的规定执行。</em></p>
+<h3 id="620-%E5%85%B6%E4%BB%96%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B4%BB%E5%8A%A8">6.20 其他软件开发活动</h3>
+<h4 id="6201-%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86%E5%8C%85%E6%8B%AC%E4%B8%80%E7%9B%B4%E7%9A%84%E9%A3%8E%E9%99%A9%E5%92%8C%E7%9B%B8%E5%BA%94%E7%9A%84%E5%AF%B9%E7%AD%96">6.20.1 风险管理，包括一直的风险和相应的对策</h4>
+<h4 id="6202-%E8%BD%AF%E4%BB%B6%E7%AE%A1%E7%90%86%E6%8C%87%E6%A0%87%E5%8C%85%E6%8B%AC%E8%A6%81%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8C%87%E6%A0%87">6.20.2 软件管理指标，包括要使用的指标</h4>
+<h4 id="6203-%E4%BF%9D%E5%AF%86%E6%80%A7%E5%92%8C%E7%A7%81%E5%AF%86%E6%80%A7">6.20.3 保密性和私密性</h4>
+<h4 id="6204-%E6%89%BF%E5%8C%85%E6%96%B9%E7%AE%A1%E7%90%86">6.20.4 承包方管理</h4>
+<h4 id="6205-%E4%B8%8E%E8%BD%AF%E4%BB%B6%E7%8B%AC%E7%AB%8B%E9%AA%8C%E8%AF%81%E4%B8%8E%E7%A1%AE%E8%AE%A4ivv%E6%9C%BA%E6%9E%84%E7%9A%84%E6%8E%A5%E5%8F%A3">6.20.5 与软件独立验证与确认（IV&amp;V）机构的接口</h4>
+<h4 id="6206-%E5%92%8C%E6%9C%89%E5%85%B3%E5%BC%80%E5%8F%91%E6%96%B9%E7%9A%84%E5%8D%8F%E8%B0%83">6.20.6 和有关开发方的协调</h4>
+<h4 id="6207-%E9%A1%B9%E7%9B%AE%E8%BF%87%E7%A8%8B%E7%9A%84%E6%94%B9%E8%BF%9B">6.20.7 项目过程的改进</h4>
+<h4 id="6208-%E8%AE%A1%E5%88%92%E4%B8%AD%E6%9C%AA%E6%8F%90%E5%8F%8A%E7%9A%84%E5%85%B6%E4%BB%96%E6%B4%BB%E5%8A%A8">6.20.8 计划中未提及的其他活动</h4>
+<h2 id="7-%E8%BF%9B%E5%BA%A6%E8%A1%A8%E5%92%8C%E6%B4%BB%E5%8A%A8%E7%BD%91%E7%BB%9C%E5%9B%BE">7 进度表和活动网络图</h2>
+<p><em>本章应给出:</em></p>
+<ul>
+<li><em>进度表,标识每个开发阶段中的活动,给出每个活动的初始点、提交的草稿和最终结果的可用性、其他的里程碑及每个活动的完成点;</em></li>
+<li><em>活动网络图,描述项目活动之间的顺序关系和依赖关系,标出完成项目中有最严格时间自限制的活动。</em></li>
+</ul>
+<h2 id="8-%E9%A1%B9%E7%9B%AE%E7%BB%84%E7%BB%87%E5%92%8C%E8%B5%84%E6%BA%90">8 项目组织和资源</h2>
+<h3 id="81-%E9%A1%B9%E7%9B%AE%E7%BB%84%E7%BB%87">8.1 项目组织</h3>
+<p><em>本条应描述本项目要采用的组织结构,包括涉及的组织机构,机构之间的关系,执行所需活动的每个机构的权限和职责。</em></p>
+<h3 id="82-%E9%A1%B9%E7%9B%AE%E8%B5%84%E6%BA%90">8.2 项目资源</h3>
+<p><em>本条应描述适用于本项目的资源。(若适用)应包括:</em></p>
+<ul>
+<li>
+<p><em>人力资源,包括：</em></p>
+<ol>
+<li><em>估计此项目应投入的人力(人员/时间数);</em></li>
+<li><em>按职责(如:管理,软件工程,软件测试,软件配置管理,软件产品评估,软件质量保证和软件文档编制等)分解所投入的人力:</em></li>
+<li><em>履行每个职责人员的技术级别、地理位置和涉密程度的划分;</em></li>
+</ol>
+</li>
+<li>
+<p><em>开发人员要使用的设施,包括执行工作的地理位置、要使用的设施、保密区域和运用合同项目的设施的其他特性；</em></p>
+</li>
+<li>
+<p><em>为满足合同需要,需方应提高的设备、软件、服务、文档、资料及设施,给出一张何时需要上述各项的进度表;</em></p>
+</li>
+<li>
+<p><em>其他所需的资源,包括:获得资源的计划,需要的日期和每项资源的可用性。</em></p>
+</li>
+</ul>
+<h2 id="9-%E5%9F%B9%E8%AE%AD">9 培训</h2>
+<h3 id="91-%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%8A%80%E6%9C%AF%E8%A6%81%E6%B1%82">9.1 项目的技术要求</h3>
+<p><em>根据客户需求和项目策划结果,确定本项目的技术要求,包括管理技术和开发技术培训计划</em></p>
+<h3 id="92-%E5%9F%B9%E8%AE%AD%E8%AE%A1%E5%88%92">9.2 培训计划</h3>
+<p><em>根据项目的技术要求和项目成员的情况,确定是否需要进行项目培训,并制订培训计划。如不需要培训，应说明理由。</em></p>
+<h2 id="10-%E9%A1%B9%E7%9B%AE%E4%BC%B0%E7%AE%97">10 项目估算</h2>
+<h3 id="101-%E4%BC%B0%E7%AE%97%E8%A7%84%E6%A8%A1">10.1 估算规模</h3>
+<h3 id="102-%E5%B7%A5%E4%BD%9C%E9%87%8F%E4%BC%B0%E7%AE%97">10.2 工作量估算</h3>
+<h3 id="103-%E6%88%90%E6%9C%AC%E4%BC%B0%E7%AE%97">10.3 成本估算</h3>
+<h3 id="104-%E5%85%B3%E9%94%AE%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%B5%84%E6%BA%90%E4%BC%B0%E7%AE%97">10.4 关键计算机资源估算</h3>
+<h3 id="105-%E7%AE%A1%E7%90%86%E9%A2%84%E7%95%99">10.5 管理预留</h3>
+<h2 id="11-%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86">11 风险管理</h2>
+<p><em>本章应分析可能存在的风险,所采取的对策和风险管理计划。</em></p>
+<h2 id="12-%E6%94%AF%E6%8C%81%E6%9D%A1%E4%BB%B6">12 支持条件</h2>
+<h3 id="121-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%94%AF%E6%8C%81">12.1 计算机系统支持</h3>
+<h3 id="122-%E9%9C%80%E8%A6%81%E9%9C%80%E6%96%B9%E6%89%BF%E6%8B%85%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%92%8C%E6%8F%90%E4%BE%9B%E7%9A%84%E6%9D%A1%E4%BB%B6">12.2 需要需方承担的工作和提供的条件</h3>
+<h3 id="123-%E9%9C%80%E8%A6%81%E6%89%BF%E5%8C%85%E6%96%B9%E6%89%BF%E6%8B%85%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%92%8C%E6%8F%90%E4%BE%9B%E7%9A%84%E6%9D%A1%E4%BB%B6">12.3 需要承包方承担的工作和提供的条件</h3>
+<h2 id="13-%E6%B3%A8%E8%A7%A3">13 注解</h2>
+<p><em>本章应包含有助于理解本文档的一般信息(例如原理)。本章应包含为理解本和定义,所有缩略语和它们在文档中的含义的字母序列表。</em></p>
+<h2 id="%E9%99%84%E5%BD%95">附录</h2>
+<p><em>附录可用来提供那些为便于文档维护而单独出版的信息(例如图表、分类数据)。为便于处理附录可单独装订成册。附录应按字母顺序(A,B等)编排。</em></p>
+
+</body>
+</html>

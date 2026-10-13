@@ -1,0 +1,10 @@
+# 依赖与缓存目录（可随时重新生成，不纳入版本管理）
+node_modules/
+__pycache__/
+*.pyc
+venv/
+.venv/
+env/
+
+# macOS 系统文件
+.DS_Store

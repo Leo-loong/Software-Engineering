@@ -1,0 +1,1418 @@
+\documentclass[12pt,a4paper]{ctexart}
+
+% 页面设置
+\usepackage[top=2cm, bottom=2cm, left=2.5cm, right=2cm]{geometry}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{multicol}
+
+% 页面样式
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small 软件工程基础——详细目录}
+\fancyhead[R]{\small 开卷考试参考}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+
+% 标题格式
+\titleformat{\section}{\Large\bfseries}{}{0em}{}
+\titleformat{\subsection}{\large\bfseries}{}{0em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{}{0em}{}
+
+\titlespacing{\section}{0pt}{8pt}{4pt}
+\titlespacing{\subsection}{0pt}{6pt}{3pt}
+\titlespacing{\subsubsection}{0pt}{4pt}{2pt}
+
+% 紧凑列表
+\setlist{nosep, leftmargin=2em, itemsep=0pt, parsep=0pt}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+% 超链接设置
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue
+}
+
+\begin{document}
+
+\begin{center}
+    {\Huge\bfseries 软件工程基础}\\[0.5cm]
+    {\Large 详细考试目录}\\[0.3cm]
+    {\normalsize （北京航空航天大学软件学院\quad 杨溢龙）}\\[0.5cm]
+    \rule{\textwidth}{1pt}\\[0.5cm]
+    {\normalsize 全册共186页\quad | \quad 8章内容\quad | \quad 按PDF页码标注}
+\end{center}
+
+\vspace{0.5cm}
+
+% ============================================
+% 第1章
+% ============================================
+\section{第1章：软件与软件工程 \hfill（第1--17页）}
+
+\subsection{Part 1\quad 软件 \hfill（第1--7页）}
+
+\subsubsection{1.1\quad 软件的基本概念与特点 \hfill（第1页）}
+\begin{itemize}
+    \item 软件的基本概念
+    \item 软件的概念及特点
+    \item 软件的分类
+    \item 软件的地位和作用
+    \item 建设狗窝和建设大厦的区别
+    \item 算法 vs 程序 vs 软件
+    \item 何为程序？——程序的两种形式（源代码/可执行代码）
+\end{itemize}
+
+\subsubsection{1.2\quad 程序编写与软件开发 \hfill（第2页）}
+\begin{itemize}
+    \item 程序如何编写？
+    \item 软件开发难点与挑战
+    \item 从程序到软件——工程开发的启发
+    \item 目标领域类型（金融、信息技术、医疗等）
+    \item 利益相关者（领域专家、设计师、架构师、开发/测试/运维工程师）
+    \item 编程语言种类（C/C++/Java/Python/Dart/Go/Rust）
+    \item 运行平台（Web/Desktop/Mobile）
+    \item 系统类型（信息系统、嵌入式、CPS、区块链、AI使能系统）
+\end{itemize}
+
+\subsubsection{1.3\quad 软件的构成：程序+数据+文档 \hfill（第3页）}
+\begin{itemize}
+    \item 软件开发的再认识
+    \item 软件开发核心问题（什么是对？什么是好？）
+    \item 从需求到代码的分阶段跨越
+    \item 何为软件？（程序 + 数据 + 文档）
+    \item 何为数据？（初始化数据 + 测试数据 + 日常数据）
+    \item 数据示例（用户、订单、交易、日志数据）
+    \item 数据处理（表示、获取、存储、检索、分析）
+\end{itemize}
+
+\subsubsection{1.4\quad 软件文档 \hfill（第3--4页）}
+\begin{itemize}
+    \item 何为文档？（开发文档 + 管理文档 + 产品文档）
+    \item 为什么需要文档？（记不住、理不清、讲不明）
+    \item 编写文档目的（阐述清楚、发现问题、开展交流、促进管理）
+    \item Agent工具生成能力对比（ATM/TakeOutMS/LoanPS案例）
+    \item 集成测试成功率 vs 单元测试成功率 vs 错误迭代次数
+    \item openspec / speckit / claude 对比数据
+    \item 文档的重要性（企业成熟度的标志）
+    \item 软件文档分类：开发文档、管理文档、产品文档
+    \item 软件文档的覆盖关系（6层：目标程序→源程序→详细设计→概要设计→需求规格→用户需求→合同）
+\end{itemize}
+
+\subsubsection{1.5\quad 软件文档规范与模版 \hfill（第5页）}
+\begin{itemize}
+    \item 软件文档规范（国军标GB438B）
+    \item 参考模版
+\end{itemize}
+
+\subsubsection{1.6\quad 软件的特点小结 \hfill（第5页）}
+\begin{itemize}
+    \item 逻辑性、设计开发、易变性、复杂性、缺陷的隐蔽性
+\end{itemize}
+
+\subsubsection{1.7\quad 软件质量 \hfill（第5--6页）}
+\begin{itemize}
+    \item 软件质量要素（1/3）：正确性、可靠性、健壮性、有效性
+    \item 软件质量要素（2/3）：安全性、可维护性、可移植性、可重用性
+    \item 软件质量要素（3/3）：可理解性、可信性、持续性、易用性、互操作性
+\end{itemize}
+
+\subsubsection{1.8\quad 软件分类 \hfill（第6--7页）}
+\begin{itemize}
+    \item 按功能分类：系统软件、支撑软件、应用软件
+    \item 关键基础软件
+    \item 开源软件（Open Source Software）
+    \item 开源软件许可证：MIT、BSD、Apache、MPL、LGPL、GPL
+\end{itemize}
+
+\subsection{Part 2\quad 软件演化及危机 \hfill（第7--10页）}
+
+\subsubsection{1.9\quad 软件发展与挑战 \hfill（第8页）}
+\begin{itemize}
+    \item 软件发展与挑战
+    \item 传统的个体作坊式软件开发
+    \item 个体作坊式创作带来的问题
+    \item 软件开发面临的挑战：开发成本高、缺陷密度高、需求增长快、成功概率低、生产率低
+\end{itemize}
+
+\subsubsection{1.10\quad 软件危机 \hfill（第9--10页）}
+\begin{itemize}
+    \item 软件危机的出现
+    \item 软件危机（Software Crisis）定义与表现
+    \item 示例：IBM 360 OS软件开发
+    \item 软件维护困难
+    \item 质量难以保证
+    \item 软件错误后果
+    \item 软件灾难故事：ARIANE 5火箭爆炸
+    \item 软件灾难故事：特斯拉Autopilot
+    \item 软件灾难故事：波音737 MAX
+    \item 大模型灾难故事
+    \item 软件危机产生根源总结
+    \item 解决危机的途径——软件工程
+\end{itemize}
+
+\subsection{Part 3\quad 软件工程 \hfill（第11--17页）}
+
+\subsubsection{1.11\quad 软件工程基本概念 \hfill（第11--12页）}
+\begin{itemize}
+    \item 软件工程产生的动机
+    \item 软件开发方式的改变
+    \item 软件工程的定义（IEEE 1993）
+    \item 软件工程的作用
+\end{itemize}
+
+\subsubsection{1.12\quad 软件工程的发展历程 \hfill（第12--14页）}
+\begin{itemize}
+    \item 20世纪50-60年代：萌芽阶段
+    \item 20世纪70年代：结构化方法兴起
+    \item 20世纪80年代：面向对象方法出现
+    \item 20世纪90年代：UML统一建模语言、敏捷方法
+    \item 21世纪前十年：敏捷普及、开源兴起
+    \item 近十年（2011-至今）：DevOps、AI赋能
+    \item 生成式软件开发 / 大模型
+    \item 氛围编程（Vibe Coding）
+    \item 提示词工程（Prompt Engineering）
+    \item 智能体（Agent）
+\end{itemize}
+
+\subsubsection{1.13\quad 软件工程的知识体系 \hfill（第14页）}
+\begin{itemize}
+    \item IEEE SWEBOK V3.0 / V4.0（软件工程知识体系指南）
+    \item 软件工程的多学科交叉
+\end{itemize}
+
+\subsubsection{1.14\quad 软件工程的目标与三要素 \hfill（第15页）}
+\begin{itemize}
+    \item 软件工程的目标
+    \item 软件工程的三要素：过程（Process）、方法学（Methodology）、工具（Tool）
+\end{itemize}
+
+\subsubsection{1.15\quad 软件工程基本原则 \hfill（第16--17页）}
+\begin{enumerate}
+    \item 抽象和建模（Abstraction and Modeling）
+    \item 模块化（Modularity）
+    \item 软件重用（Software Reuse）
+    \item 信息隐藏（Information Hiding）
+    \item 关注点分离（Separation of Concerns）
+    \item 分而治之（Divide and Conquer）
+    \item 双向追踪原则（Bidirectional Traceability）
+    \item 工具辅助（Tool Support）
+\end{enumerate}
+
+\subsubsection{1.16\quad 软件工程的基本观点与小结 \hfill（第17页）}
+
+\vspace{0.3cm}
+% ============================================
+% 第2章
+% ============================================
+\section{第2章：软件过程与项目管理 \hfill（第18--29页）}
+
+\subsection{Part 1\quad 软件过程概述 \hfill（第18--20页）}
+
+\subsubsection{2.1\quad 软件过程与生命周期 \hfill（第18--19页）}
+\begin{itemize}
+    \item 软件过程（Software Process）定义
+    \item 软件过程模型（Software Process Model）
+    \item 软件生命周期模型概论
+    \item 需求分析（Requirement Analysis）
+    \item 概要设计（Architecture Design）
+    \item 详细设计（Detailed Design）
+    \item 编程实现（Implementation）
+    \item 集成测试（Integration Test）
+    \item 确认测试（Validation Test）
+    \item 边写边改模型（Code and Fix）—— 最原始的模型
+\end{itemize}
+
+\subsection{Part 2\quad 软件过程模型 \hfill（第20--23页）}
+
+\subsubsection{2.2\quad 瀑布模型 \hfill（第21页）}
+\begin{itemize}
+    \item 瀑布模型（Waterfall Model, 1970）
+    \item 特点：阶段顺序执行、文档驱动
+    \item 过程分解与精化的核心思想：增量 / 迭代
+    \item 过程分解——功能维度
+    \item 过程分解——时间维度
+\end{itemize}
+
+\subsubsection{2.3\quad 增量模型与快速原型 \hfill（第22页）}
+\begin{itemize}
+    \item 增量模型（Incremental Model）
+    \item 快速原型模型（Rapid Prototyping）
+    \item 螺旋模型（Spiral Model）—— Boehm 1988
+\end{itemize}
+
+\subsubsection{2.4\quad 敏捷方法与Scrum \hfill（第22--23页）}
+\begin{itemize}
+    \item 敏捷宣言（Agile Manifesto, 2001）—— 4条价值观
+    \item Scrum过程
+    \item Scrum角色：Product Owner（产品负责人）、Scrum Master、Team（开发团队）
+    \item Sprint（冲刺）概念
+\end{itemize}
+
+\subsection{Part 3\quad 过程模型选择策略 \hfill（第23--24页）}
+\begin{itemize}
+    \item 软件过程模型的选择原则
+    \item 场景一：V模型 / 外包项目
+    \item 场景二：高风险项目 —— 螺旋模型
+    \item 场景三：复刻产品 —— 增量模型
+    \item 场景四：持续更新 —— 迭代模型 / 敏捷
+    \item 模型选择小结
+\end{itemize}
+
+\subsection{Part 4\quad 软件项目管理 \hfill（第25--29页）}
+
+\subsubsection{2.5\quad 软件项目概述 \hfill（第25--26页）}
+\begin{itemize}
+    \item 软件项目及其特点
+    \item 软件项目的任务
+    \item 软件项目实施方法——工程化
+    \item 何为软件项目管理？（三要素：过程、人员、产品）
+    \item 软件项目的管理要素
+\end{itemize}
+
+\subsubsection{2.6\quad 过程管理 \hfill（第27--28页）}
+\begin{itemize}
+    \item 过程定义
+    \item 软件度量
+    \item 成本预算
+    \item 活动排序
+    \item 软件项目计划
+    \item 甘特图（Gantt Chart）—— 描述项目进度计划
+    \item 项目跟踪
+    \item 风险管理
+\end{itemize}
+
+\subsubsection{2.7\quad 产品管理 \hfill（第28--29页）}
+\begin{itemize}
+    \item 软件质量保证（SQA）
+    \item 软件配置管理（SCM）
+    \item 基线的概念（Baseline）
+    \item 软件需求管理
+\end{itemize}
+
+\subsubsection{2.8\quad 人员管理 \hfill（第29页）}
+\begin{itemize}
+    \item 人员管理
+    \item 软件项目团队
+\end{itemize}
+
+\vspace{0.3cm}
+% ============================================
+% 第3章 / 第5章 需求工程
+% ============================================
+\section{第3章 / 第5章：需求工程 \hfill（第30--79页）}
+
+\subsection{Part 1\quad 需求基本概念 \hfill（第30--36页）}
+
+\subsubsection{3.1\quad 需求的定义与重要性 \hfill（第30--32页）}
+\begin{itemize}
+    \item 软件开发的本质
+    \item 需求重要性（价值所在 / 开发基础 / 验收标准）
+    \item 空巢老人看护系统示例
+    \item 软件需求定义（IEEE 1997标准）
+    \item 何为需求？——解读IEEE标准
+\end{itemize}
+
+\subsubsection{3.2\quad 利益相关者分析 \hfill（第32--33页）}
+\begin{itemize}
+    \item 软件系统的利益相关者（用户、客户、系统分析员、开发者）
+    \item 软件需求及其利益相关方
+    \item 利益相关者对软件需求差异和冲突
+\end{itemize}
+
+\subsubsection{3.3\quad 软件需求的特点 \hfill（第34页）}
+\begin{itemize}
+    \item 隐式性（隐含的、未明确表达的）
+    \item 隐晦性（难以明确表达的）
+    \item 多源性（来源多样）
+    \item 易变性（随时间变化）
+    \item 领域知识相关性
+    \item 价值不均性（不同需求价值不同）
+\end{itemize}
+
+\subsubsection{3.4\quad 软件需求的质量要求 \hfill（第34--35页）}
+\begin{itemize}
+    \item 有价值、正确、完整、无二义性
+    \item 可行、一致、可追踪、可验证
+\end{itemize}
+
+\subsubsection{3.5\quad 可行性分析 \hfill（第35--36页）}
+\begin{itemize}
+    \item 技术可行性
+    \item 设备可行性
+    \item 进度可行性
+    \item 成本可行性
+    \item 商业可行性
+    \item 社会可行性（法律法规）
+    \item 可行性研究报告
+\end{itemize}
+
+\subsection{Part 2\quad 需求工程 \hfill（第36--41页）}
+
+\subsubsection{3.6\quad 需求工程的定义与特点 \hfill（第36--37页）}
+\begin{itemize}
+    \item 需求工程的重要性
+    \item 何为需求工程？（Requirements Engineering）
+    \item 需求工程的特点
+    \item ISO/IEC/IEEE 15288 / 12207 / 29148 标准
+    \item 需求工程指南及参考书目（IREB、INCOSE、IEEE 830）
+\end{itemize}
+
+\subsubsection{3.7\quad 需求工程过程模型 \hfill（第38--40页）}
+\begin{itemize}
+    \item 螺旋模型 —— 三层次三阶段
+    \item 需求的三个层次：业务需求、用户需求、系统需求
+    \item 系统需求：功能性需求 vs 非功能性需求
+    \item 非功能性需求 —— ISO 25010标准分类
+    \item 需求工程三阶段：需求获取、需求表示/精化与规约、需求确认与验证
+\end{itemize}
+
+\subsubsection{3.8\quad 需求管理 \hfill（第40--41页）}
+\begin{itemize}
+    \item 软件需求的缺陷
+    \item 软件需求变更管理
+    \item 需求工程相关的CASE工具
+\end{itemize}
+
+\subsection{Part 3\quad 需求获取 \hfill（第41--50页）}
+
+\subsubsection{3.9\quad 需求获取的来源与方法 \hfill（第41--43页）}
+\begin{itemize}
+    \item 软件需求从何而来？
+    \item 需求获取为什么难？
+    \item 成立需求分析的联合工作小组（JRT）
+    \item 需求获取的方法：
+    \begin{itemize}
+        \item 访谈和会议
+        \item 调查问卷
+        \item 现场观摩
+        \item 分析业务资料
+        \item 群体化方法（Brainstorming / JAD）
+        \item 大语言模型推荐
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{3.10\quad 需求获取的一般过程（1/4）——明确问题与边界 \hfill（第44页）}
+\begin{itemize}
+    \item 明确软件要解决的问题
+    \item 课程实践创意示例：无人值守图书馆
+    \item 课程实践创意示例：多无人机联合搜寻
+\end{itemize}
+
+\subsubsection{3.11\quad 需求获取的一般过程（2/4）——识别利益相关方与功能需求 \hfill（第45--46页）}
+\begin{itemize}
+    \item 识别利益相关方
+    \item 获取软件的功能性需求
+    \item 合理的软件需求
+    \item 获取和构思非功能性需求
+\end{itemize}
+
+\subsubsection{3.12\quad 需求获取的一般过程（3/4）——描述初步软件需求 \hfill（第46--50页）}
+\begin{itemize}
+    \item 自然语言描述及不足
+    \item 结构化自然语言描述
+    \item 用户故事（User Story）—— 三要素：角色、功能、价值
+    \item EARS（Easy Approach to Requirements Syntax）—— 简洁需求句法
+    \item EARS五类模板：Ubiquitous / Event-driven / State-driven / Unwanted / Optional
+    \item 交互流程描述（场景描述）
+    \item 基本流程（Basic Flow）
+    \item 扩展流程（Extension Flow）——编号编写、异常处理、选择
+    \item 撰写初步软件需求描述文档
+\end{itemize}
+
+\subsubsection{3.13\quad 需求获取的一般过程（4/4）——评审初步需求 \hfill（第50页）}
+\begin{itemize}
+    \item 评审初步软件需求
+    \item 需求获取（总图）
+\end{itemize}
+
+\subsection{Part 4\quad 需求精化与规约 \hfill（第51--76页）}
+
+\subsubsection{3.14\quad 需求精化与优先级 \hfill（第51--52页）}
+\begin{itemize}
+    \item 为什么要精化初始软件需求
+    \item 软件需求的精化与规约的任务
+    \item 分析和确定软件需求优先级
+    \item 分析软件需求重要性
+    \item 示例：空巢老人看护软件的需求重要性分析
+    \item 确定需求迭代先后次序
+\end{itemize}
+
+\subsubsection{3.15\quad 需求精化的核心问题 \hfill（第53页）}
+\begin{itemize}
+    \item 两层次跨越：从问题域到解域
+\end{itemize}
+
+\subsubsection{3.16\quad 面向对象需求建模 \hfill（第54--55页）}
+\begin{itemize}
+    \item 面向对象系统需求的建模方法
+    \item 用例模型（行为视角）
+    \item 领域概念模型（结构视角）
+    \item 系统操作合约
+    \item 一阶逻辑 / 对象约束语言（OCL）
+\end{itemize}
+
+\subsubsection{3.17\quad UML统一建模语言 \hfill（第56--57页）}
+\begin{itemize}
+    \item UML: Unified Modeling Language
+    \item Unified（统一）、Modeling（建模）、Language（语言）
+    \item UML本质 —— 是一种语言，不是方法学
+    \item UML与软件开发方法、过程的关系
+    \item 面向对象建模语言
+    \item 面向对象需求分析方法的优势和特色
+    \item UML应用范围
+    \item UML图（9种图 / 5类）
+    \item UML的视点及图：
+    \begin{itemize}
+        \item 用例图（Use Case Diagram）
+        \item 静态图：类图、对象图、包图
+        \item 结构：构件图、部署图
+        \item 行为：状态图、活动图、通信图、顺序图
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{3.18\quad 用例图（Use Case Diagram）\hfill（第57--61页）}
+\begin{itemize}
+    \item 参与者（Actor）—— 识别参与者
+    \item 参与者之间的泛化关系
+    \item 系统边界框
+    \item 用例（Use Case）
+    \item 用例的特征 / 特点
+    \item 用例往往是动宾短语
+    \item 用例独立和完备性
+    \item 用例由参与者启动
+    \item 用例要有可观测的执行结果
+    \item 用例描述
+    \item 用例的识别
+    \item 执行者与用例间的关系
+    \item 用例间的关系：
+    \begin{itemize}
+        \item 包含（Include）—— 必须执行
+        \item 扩展（Extend）—— 可选执行
+    \end{itemize}
+    \item 超市管理系统——用例模型示例
+\end{itemize}
+
+\subsubsection{3.19\quad 顺序图（Sequence Diagram）\hfill（第62--64页）}
+\begin{itemize}
+    \item 顺序图的概念
+    \item 三种主要作用
+    \item 顺序图的组成元素：对象、生命线、激活、消息
+    \item 对象（Object）
+    \item 生命线（Lifeline）
+    \item 激活（Execution / Activation）
+    \item 消息（Message）
+    \item 同步消息（Synchronous） vs 异步消息（Asynchronous）
+    \item 系统顺序图（需求） VS 对象顺序图（设计）—— 重要区分
+\end{itemize}
+
+\subsubsection{3.20\quad 面向对象的核心概念 \hfill（第64--66页）}
+\begin{itemize}
+    \item 对象（Object）
+    \item 类（Class）—— 对象与类的关系
+    \item 继承（Inheritance）
+    \item 多态（Polymorphism）
+    \item 覆盖/重写（Override）
+    \item 重载（Overload）
+    \item 消息（Message）
+    \item 聚合（Aggregation）和组合（Composition）—— 整体-部分关系
+\end{itemize}
+
+\subsubsection{3.21\quad 领域概念模型 \hfill（第66--67页）}
+\begin{itemize}
+    \item 识别类与对象 —— 系统实体的识别方法
+    \item 识别属性
+    \item 识别关联关系
+    \item 关联名称 / 角色 / 导向性
+    \item 关联类
+    \item 关联的多重性（1:1, 1:n, n:m）
+    \item 领域模型（Domain Model）
+    \item 小结
+\end{itemize}
+
+\subsubsection{3.22\quad 系统操作合约 \hfill（第68--69页）}
+\begin{itemize}
+    \item 系统操作（System Operation）
+    \item 系统操作合约（System Operation Contract）
+    \item 操作签名、交叉引用、前置条件、后置条件
+    \item 面向对象的基本操作（创建对象、连接变化、属性变化）
+    \item OCL（Object Constraint Language）—— 对象约束语言
+    \item OCL合约
+\end{itemize}
+
+\subsubsection{3.23\quad 面向过程的需求建模（结构化分析）\hfill（第70--75页）}
+\begin{itemize}
+    \item 结构化分析思想
+    \item 数据流模型（行为视角）
+    \item 实体关系模型（结构视角）
+    \item 结构化分析方法概述
+    \item 指导性原则
+    \item 结构化方法的局限性
+    \item 结构化分析工具：DFD、DD、结构化语言、判定表、判定树
+\end{itemize}
+
+\subsubsection{3.24\quad 数据流图（DFD）\hfill（第71--72页）}
+\begin{itemize}
+    \item 数据流图（Data Flow Diagram）
+    \item 基本成份：外部实体、处理、数据流、数据存储
+    \item 环境图（0级DFD / 顶层图）
+    \item 数据流图的绘制步骤
+    \item 分层数据流图
+    \item 分层原则
+    \item 特征与用途
+    \item 教学管理系统分层数据流图示例
+\end{itemize}
+
+\subsubsection{3.25\quad 数据字典 \hfill（第73页）}
+\begin{itemize}
+    \item 数据字典（Data Dictionary）的定义与用途
+    \item 数据字典的种类
+    \item 数据字典的定义方法
+    \item 数据字典——数据流
+    \item 数据字典——数据项
+    \item 数据字典——数据存储
+\end{itemize}
+
+\subsubsection{3.26\quad 结构化语言与判定工具 \hfill（第73--74页）}
+\begin{itemize}
+    \item 结构化语言
+    \item 判定表（Decision Table）
+    \item 判定树（Decision Tree）
+\end{itemize}
+
+\subsubsection{3.27\quad 图书借阅管理系统——完整DFD示例 \hfill（第74--75页）}
+\begin{itemize}
+    \item 顶层数据流图
+    \item 中层数据流图
+    \item 各模块底图（处理数据流图）
+\end{itemize}
+
+\subsubsection{3.28\quad OO vs 面向过程建模对比 \hfill（第76页）}
+\begin{itemize}
+    \item 基于模型的系统需求建模——两种方法的比较
+\end{itemize}
+
+\subsection{Part 5\quad 需求确认与验证 \hfill（第76--79页）}
+
+\subsubsection{3.29\quad 需求验证 \hfill（第76--77页）}
+\begin{itemize}
+    \item 解决软件需求问题（遗漏、无源头、不一致、不正确、不规范）
+    \item 需求验证目标
+    \item Validation（确认） vs Verification（验证）—— 重要区分
+    \item 需求确认与验证的手段：
+    \begin{itemize}
+        \item 需求评审（Review）
+        \item 原型生成（Prototyping）
+        \item 测试用例生成（Test Case Generation）
+    \end{itemize}
+    \item 软件需求评审的步骤
+    \item 评审软件需求
+\end{itemize}
+
+\subsubsection{3.30\quad 需求规格说明 \hfill（第78--79页）}
+\begin{itemize}
+    \item 软件需求分析的输出：需求模型 + 软件原型 + 需求文档
+    \item 需求规格说明（SRS）
+    \item 用户需求报告
+    \item 需求分析规格说明书
+    \item 撰写软件需求文档的注意事项
+    \item 软件需求文档模板
+\end{itemize}
+
+\subsubsection{3.31\quad 需求管理活动 \hfill（第79页）}
+\begin{itemize}
+    \item 需求工程管理活动（变更控制、版本控制、需求状态跟踪、需求追踪）
+\end{itemize}
+
+\vspace{0.3cm}
+% ============================================
+% 第4章
+% ============================================
+\section{第4章：软件概要设计 \hfill（第80--107页）}
+
+\subsection{Part 1\quad 软件设计概述 \hfill（第80--85页）}
+
+\subsubsection{4.1\quad 软件设计的基本概念 \hfill（第80--82页）}
+\begin{itemize}
+    \item 从需求到设计和编码
+    \item 软件设计的基本概念
+    \item 何为软件设计？（定义、内容）
+    \item 软件设计的内容
+    \item 软件设计特点：多样性和差异性
+    \item 需求分析、软件设计、软件实现间的关系
+    \item 软件设计的质量要求：正确性、充分性、优化性、简单性
+\end{itemize}
+
+\subsubsection{4.2\quad 软件设计基本原则 \hfill（第83--85页）}
+\begin{enumerate}
+    \item \textbf{抽象原则}（Abstraction）—— 抽象在软件设计中的应用
+    \begin{itemize}
+        \item 软件设计抽象层次的变化
+        \item 体系结构层次 / 构件层次的设计抽象
+    \end{itemize}
+    \item \textbf{模块化}（Modularity）—— 模块分解与开发成本的关系
+    \item \textbf{高内聚度原则}（High Cohesion）
+    \begin{itemize}
+        \item 内聚度分类（7种）：偶然内聚、逻辑内聚、时间内聚、过程内聚、通讯内聚、顺序内聚、功能内聚
+    \end{itemize}
+    \item \textbf{低耦合度原则}（Low Coupling）
+    \begin{itemize}
+        \item 耦合度分类（7种）：内容耦合、公共耦合、外部耦合、控制耦合、标记耦合、数据耦合、无直接耦合
+    \end{itemize}
+    \item \textbf{信息隐藏原则}（Information Hiding）—— 示例
+    \item \textbf{关注点分离原则}（Separation of Concerns）
+    \item \textbf{软件重用原则}（Software Reuse）
+\end{enumerate}
+
+\subsection{Part 2\quad 软件设计过程 \hfill（第85--89页）}
+
+\subsubsection{4.3\quad 软件设计的过程 \hfill（第85--87页）}
+\begin{itemize}
+    \item 软件设计过程概述
+    \item 软件设计元素：子系统、软件组件、设计类/设计函数
+    \item 软件设计的过程——体系结构设计
+    \item 分层体系结构风格示例
+    \item 软件设计的过程——详细设计
+\end{itemize}
+
+\subsubsection{4.4\quad 软件设计的输出与评审 \hfill（第88--89页）}
+\begin{itemize}
+    \item 软件设计的输出：设计模型 + 设计文档
+    \item 软件设计文档的规范
+    \item 软件设计中的缺陷类型
+    \item 软件设计的评审
+    \item 软件设计的CASE工具
+\end{itemize}
+
+\subsection{Part 3\quad 软件架构设计 \hfill（第89--94页）}
+
+\subsubsection{4.5\quad 软件体系结构设计概述 \hfill（第89--90页）}
+\begin{itemize}
+    \item 软件架构设计概述
+    \item 软件体系结构设计示意图
+    \item 软件体系结构设计的目标
+    \item 软件体系结构设计的任务
+    \item 与软件需求的关系
+    \item 与详细设计的关系
+    \item 软件体系结构设计的过程（4步骤）
+\end{itemize}
+
+\subsubsection{4.6\quad 设计初步的软件体系结构 \hfill（第91--92页）}
+\begin{itemize}
+    \item 设计初步的软件体系结构
+    \item 不同体系结构模式适合的应用类型
+    \item 重用开源软件及已有软件资产
+    \item 到哪里找开源软件？（GitHub / SourceForge / Gitee）
+    \item 示例：搜寻和重用软件资产
+\end{itemize}
+
+\subsubsection{4.7\quad 精化软件体系结构 \hfill（第93--94页）}
+\begin{itemize}
+    \item 精化软件体系结构
+    \item 确定子系统及其接口
+    \item 确定构件及其接口
+    \item 优化体系结构设计
+    \item 撰写软件体系结构设计文档
+    \item 评审软件体系结构设计
+\end{itemize}
+
+\subsection{Part 4\quad 架构设计模型 \hfill（第95--101页）}
+
+\subsubsection{4.8\quad 面向对象的架构模型 \hfill（第95--98页）}
+\begin{itemize}
+    \item 回顾：面向对象的需求模型
+    \item 软件体系结构的概念
+    \item 面向对象软件设计过程
+    \item \textbf{包图（Package Diagram）}
+    \begin{itemize}
+        \item 包图的基本概念
+        \item 包的作用
+        \item 包的依赖关系
+        \item 示例：包图表示体系结构
+    \end{itemize}
+    \item \textbf{构件图（Component Diagram）}
+    \begin{itemize}
+        \item 组件的概念
+        \item 组件及其接口
+        \item 组件和接口的表示（供给接口 / 需求接口 / 端口）
+        \item 示例：软件组件（.dll / .jar）
+        \item 软件体系结构的逻辑视图：组件图
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{4.9\quad 面向过程的架构模型 \hfill（第99--101页）}
+\begin{itemize}
+    \item 面向过程概要设计的主要内容
+    \item H图（层次图 / Hierarchy Chart）
+    \item IPO图（输入-处理-输出图）
+    \item 结构图（Structure Chart）
+    \item 面向数据流的设计方法
+    \item 变换分析（Transform Analysis）
+    \item 事物分析（Transaction Analysis）
+\end{itemize}
+
+\subsection{Part 5\quad 软件架构设计模式 \hfill（第101--107页）}
+
+\subsubsection{4.10\quad 软件体系结构风格 \hfill（第101--102页）}
+\begin{itemize}
+    \item 软件体系结构风格（Architecture Style）
+    \item 建筑风格类比（中式/西式）
+    \item 软件设计模式（Design Pattern）
+    \item 常用软件体系结构风格概述
+\end{itemize}
+
+\subsubsection{4.11\quad 分层体系结构模式 \hfill（第102--105页）}
+\begin{itemize}
+    \item 分层体系结构模式（Layered Architecture）
+    \item 分层模式的约束 / 特点
+    \item 示例：网络OSI模型 / 云计算架构
+    \item 三层结构设计（Three-Tier Architecture）
+    \begin{itemize}
+        \item 表示层（Presentation Layer）
+        \item 中间层 / 业务逻辑层（Business Logic Layer）
+        \item 数据层（Data Layer）
+    \end{itemize}
+    \item 三层协调工作 / 三层结构优点
+    \item \textbf{MVC风格}（Model-View-Controller）
+    \begin{itemize}
+        \item Model（模型）、View（视图）、Controller（控制器）
+        \item MVC风格的约束
+    \end{itemize}
+    \item \textbf{MVP模式}（Model-View-Presenter）
+    \begin{itemize}
+        \item MVP与MVC的区别
+    \end{itemize}
+    \item \textbf{MVVM框架}（Model-View-ViewModel）
+    \item 贫血模型（Anemic Model）与充血模型（Rich Model）
+\end{itemize}
+
+\subsubsection{4.12\quad 管道与过滤器风格 \hfill（第106页）}
+\begin{itemize}
+    \item 管道与过滤器风格（Pipe-and-Filter）
+    \item 模式的特点 / 约束
+    \item 示例：Unix Shell管道
+\end{itemize}
+
+\subsubsection{4.13\quad SOA与消息总线 \hfill（第106--107页）}
+\begin{itemize}
+    \item 面向服务的体系结构（SOA）
+    \item SOA风格的特点
+    \item 消息总线风格（Message Bus）
+    \item ESB（Enterprise Service Bus）体系结构
+\end{itemize}
+
+\vspace{0.3cm}
+% ============================================
+% 第5章
+% ============================================
+\section{第5章：软件详细设计 \hfill（第108--134页）}
+
+\subsection{Part 1\quad 详细设计概述 \hfill（第108--111页）}
+
+\subsubsection{5.1\quad 详细设计的任务与定位 \hfill（第108--110页）}
+\begin{itemize}
+    \item 面向对象/面向过程方法的软件设计过程（回顾）
+    \item 详细设计的动机
+    \item 详细设计的任务与定位
+    \item 目标与原则
+    \item 主要活动
+    \item \textbf{概要设计 vs 详细设计}（重要对比）：
+    \begin{itemize}
+        \item 概要设计：做什么（What）—— 体系结构层面
+        \item 详细设计：怎么做（How）—— 实现细节层面
+    \end{itemize}
+    \item 软件详细设计的要求和原则
+\end{itemize}
+
+\subsubsection{5.2\quad 软件详细设计的活动 \hfill（第110--111页）}
+\begin{enumerate}
+    \item 用例设计
+    \item 子系统/软构件设计
+    \item 类/函数设计
+    \item 持久化设计（数据设计）
+\end{enumerate}
+
+\subsection{Part 2\quad 面向对象的详细设计过程 \hfill（第111--126页）}
+
+\subsubsection{5.3\quad 详细设计的过程（4步骤）\hfill（第112--113页）}
+\begin{itemize}
+    \item 步骤1：用例设计
+    \item 用例设计的任务
+    \item 系统与设计类间对应关系
+    \item 设计元素及其交互
+    \item 示例：用例顺序图 / 设计方案
+\end{itemize}
+
+\subsubsection{5.4\quad 类设计 \hfill（第114--120页）}
+\begin{itemize}
+    \item 类设计的任务
+    \item 类设计原则：准确化、细节化、一致性、遵循设计原则
+    \item 注意事项
+    \item 类设计过程：
+    \begin{enumerate}
+        \item 确定类的可见范围（public / protected / private）
+        \item 精化类间的关系（继承 / 组合 / 聚合 / 关联 / 依赖）
+        \item 精化类属性的设计
+        \item 精化类方法的设计
+        \item 构造类对象的状态图 / 活动图
+        \item 评审和优化
+    \end{enumerate}
+    \item \textbf{活动图（Activity Diagram）}
+    \begin{itemize}
+        \item 基本概念
+        \item 组成元素：动作和活动节点、开始和终止、控制流、判断节点、分叉节点、合并节点、结合节点
+        \item 对象流（Object Flow）
+        \item 泳道（Swimlane）
+    \end{itemize}
+    \item \textbf{状态图（State Machine Diagram）}
+    \begin{itemize}
+        \item 概念、主要图符
+        \item 转移（Transition）：触发器→守卫→影响
+    \end{itemize}
+    \item 类设计输出的软件制品
+\end{itemize}
+
+\subsubsection{5.5\quad 持久化设计（数据设计）\hfill（第121--125页）}
+\begin{itemize}
+    \item 为什么要进行持久化设计
+    \item 数据设计的任务
+    \item 数据设计的原则
+    \item 持久化设计的任务
+    \item 数据设计过程：
+    \begin{enumerate}
+        \item 确定永久数据（哪些数据需要持久化存储）
+        \item 确定持久数据的存储和组织方式
+        \item 确定持久数据条目
+        \item 关系映射：
+        \begin{itemize}
+            \item 1:n关联关系的映射（外键）
+            \item n:m关联关系的映射（中间表）
+            \item 继承关系的数据库表设计（3种策略）
+        \end{itemize}
+        \item 设计数据操作（CRUD）
+        \item 评审和优化数据设计
+    \end{enumerate}
+    \item 示例：设计持久数据
+    \item 示例：设计永久数据的操作
+\end{itemize}
+
+\subsubsection{5.6\quad 设计整合与验证 \hfill（第125--126页）}
+\begin{itemize}
+    \item 软件详细设计的输出
+    \item 设计整合
+    \item 设计验证
+\end{itemize}
+
+\subsection{Part 3\quad 面向过程的详细设计 \hfill（第126--133页）}
+
+\subsubsection{5.7\quad 过程设计工具 \hfill（第126--130页）}
+\begin{itemize}
+    \item 面向过程详细设计概述
+    \item \textbf{程序流程图（Flow Chart）}
+    \begin{itemize}
+        \item 常见的程序流程图结构：顺序、选择、循环
+    \end{itemize}
+    \item \textbf{N-S图（Nassi-Schneiderman Diagram / 盒图）}
+    \begin{itemize}
+        \item 特点：结构化、无GOTO
+    \end{itemize}
+    \item \textbf{PDL（Program Design Language / 程序设计语言）}
+    \begin{itemize}
+        \item 伪代码形式
+    \end{itemize}
+    \item \textbf{PAD（Problem Analysis Diagram / 问题分析图）}
+    \item \textbf{决策表（Decision Table）}
+    \item \textbf{判定树（Decision Tree）}
+\end{itemize}
+
+\subsubsection{5.8\quad Jackson方法（面向数据结构的设计方法）\hfill（第130--133页）}
+\begin{itemize}
+    \item Jackson方法的基本思想
+    \item Jackson方法的3种基本类型：顺序、选择、重复
+    \item Jackson图（树形结构）
+    \item 改进的Jackson图
+    \item Jackson方法解决问题的例子（零件库房管理）
+    \item Jackson方法步骤（1-5步）
+    \item 伪代码表示程序
+\end{itemize}
+
+\subsection{Part 4\quad 设计文档与评审 \hfill（第133--134页）}
+
+\subsubsection{5.9\quad 撰写与评审设计文档 \hfill（第133--134页）}
+\begin{itemize}
+    \item 撰写设计文档（目录结构）
+    \item 软件设计方案提纲
+    \item 优化和评审用例设计方案
+    \item 设计评审人员（用户代表、设计人员、程序员、需求人员、质量人员、测试人员、配置管理员）
+    \item 评审设计文档的要点：规范性、可追踪性、一致性、正确性、高质量、可实施性
+    \item 评审步骤
+    \item 小结
+\end{itemize}
+
+\vspace{0.3cm}
+% ============================================
+% 第6章
+% ============================================
+\section{第6章：软件实现 \hfill（第135--152页）}
+
+\subsection{Part 1\quad 软件实现概论 \hfill（第135--140页）}
+
+\subsubsection{6.1\quad 软件实现的概念与任务 \hfill（第135--136页）}
+\begin{itemize}
+    \item 何为软件实现（微观概念 / 与设计和测试的关系）
+    \item 软件实现的任务
+    \item 软件实现与软件设计之间的关系
+    \item 软件实现的特点：生产性活动 + 创作性活动
+\end{itemize}
+
+\subsubsection{6.2\quad 编码原则与规范 \hfill（第137--138页）}
+\begin{itemize}
+    \item 编写代码的原则（1/3）：易读、易改
+    \item 编写代码的原则（2/3）：异常处理、代码与模型一致
+    \item 编写代码的原则（3/3）：降低复杂度、软件重用
+    \item 编程规范（Style Guide）
+    \item 遵循编码风格（1/4--4/4）：格式化、简洁性、文档、结构化
+    \item \textbf{代码重构（Code Refactoring）}—— 改善内部结构而不改变外部行为
+\end{itemize}
+
+\subsubsection{6.3\quad 软件实现的过程与工具 \hfill（第139--140页）}
+\begin{itemize}
+    \item 软件实现的过程：编码 + 单元测试 + 调试
+    \item 支持软件实现的CASE工具 —— IDE
+    \item 目前主流IDE及其特点：VSCode、JetBrains系列、Eclipse
+    \item 目前主流IDE发展历史
+    \item 未来IDE特点与趋势：服务化、云端化、定制化
+\end{itemize}
+
+\subsection{Part 2\quad 编程语言 \hfill（第140--143页）}
+
+\subsubsection{6.4\quad 程序设计语言的类别 \hfill（第140--141页）}
+\begin{itemize}
+    \item 机器语言（Machine Language）
+    \item 汇编语言（Assembly Language）
+    \item 结构化程序设计语言（C、Pascal等）
+    \item 面向对象程序设计语言（Java、C++等）
+    \item 描述性程序设计语言（SQL、HTML等）
+    \item 程序设计语言的表达能力分类：命令式 / 函数式 / 逻辑式
+\end{itemize}
+
+\subsubsection{6.5\quad 主流编程语言 \hfill（第141--142页）}
+\begin{itemize}
+    \item C / C++语言特点
+    \item Java语言特点
+    \item Python语言特点
+    \item Swift / Kotlin / ArkTS / TypeScript / Rust / 仓颉
+    \item 不同编程语言Top 10排名
+\end{itemize}
+
+\subsubsection{6.6\quad 程序设计语言的选择 \hfill（第143页）}
+\begin{itemize}
+    \item 软件的应用领域
+    \item 与遗留软件系统的交互
+    \item 软件的特殊功能及需求
+    \item 软件的目标平台
+    \item 程序员的编程经验
+\end{itemize}
+
+\subsection{Part 3\quad 软件编码过程 \hfill（第143--149页）}
+
+\subsubsection{6.7\quad 编写代码的任务 \hfill（第144--145页）}
+\begin{enumerate}
+    \item 编写实现类的代码
+    \item 编写实现类方法的代码
+    \item 编写实现类间关联的代码
+    \item 编写实现聚合和组合关系的代码
+    \item 编写实现接口关系的代码
+    \item 编写实现继承关系的程序代码
+    \item 编写实现包的代码
+\end{enumerate}
+
+\subsubsection{6.8\quad 界面与数据编码 \hfill（第146--147页）}
+\begin{itemize}
+    \item 编写用户界面代码
+    \item 示例：LoginUI的编码实现
+    \item 编写数据设计代码
+    \item 示例：T\_User表的创建
+    \item 示例：连接和关闭数据库的代码
+    \item 示例：操作数据库的程序代码
+\end{itemize}
+
+\subsubsection{6.9\quad 框架与案例 \hfill（第148--149页）}
+\begin{itemize}
+    \item 什么是框架？（Framework）
+    \item 框架 vs 类库的区别
+    \item Case Study：基于Java技术栈的系统实现
+    \item 例1：基于Java EE的单体式应用实现（分层模型）
+    \item 设计模型到Java EE代码的映射过程
+    \item 类图 / 顺序图映射
+\end{itemize}
+
+\subsubsection{6.10\quad 微服务架构补充 \hfill（第151--152页）}
+\begin{itemize}
+    \item 微服务架构模型
+    \item 基于SpringCloud的微服务应用
+    \item 微服务组件图 / 概念类图 / 顺序图
+    \item Spring Cloud架构
+    \item 服务发现配置
+    \item 网关实现
+    \item Spring Cloud应用在阿里云部署
+\end{itemize}
+
+\subsection{Part 4\quad 软件文档 \hfill（第149--150页）}
+\begin{itemize}
+    \item 软件实现文档
+    \item 用户指南的编写要求
+    \item 用户指南的排版建议
+    \item 用户指南的编写原则
+    \item 软件实现管理文档
+    \item 小结
+\end{itemize}
+
+\vspace{0.3cm}
+% ============================================
+% 第7章
+% ============================================
+\section{第7章 / 第6章续：软件测试 \hfill（第153--175页）}
+
+\subsection{Part 1\quad 软件缺陷 \hfill（第153--156页）}
+
+\subsubsection{7.1\quad 软件缺陷基本概念 \hfill（第153--154页）}
+\begin{itemize}
+    \item 故障（Fault）分类：按发生阶段、系统边界、现象、目标、目的、持久性
+    \item 软件缺陷（Software Defect / Bug）
+    \item 故障（Fault） → 错误（Error） → 失效（Failure）—— 缺陷传播链
+    \item 软件缺陷的危害（经济损失、人身安全等）
+\end{itemize}
+
+\subsubsection{7.2\quad 缺陷描述与管理 \hfill（第155--156页）}
+\begin{itemize}
+    \item 软件缺陷不可避免的原因
+    \item 软件缺陷的描述：标识符、类型、严重程度、症状、修复优先级、状态、发现者、源头、原因
+    \item 软件缺陷的应对方法：发现缺陷、修复缺陷、容忍缺陷、预防缺陷
+    \item 程序调试（Debugging）—— 定义与步骤
+    \item 缺陷管理工具（PingCode / Jira / ClickUp等）
+\end{itemize}
+
+\subsection{Part 2\quad 软件测试概论 \hfill（第157--160页）}
+
+\subsubsection{7.3\quad 测试的基本概念 \hfill（第157--158页）}
+\begin{itemize}
+    \item 软件测试概论
+    \item 在程序代码中找出软件缺陷
+    \item 程序构成及其缺陷的潜在位置
+    \item 软件测试的目的（发现错误、验证需求、提高质量）
+    \item 软件测试的功效（不能证明程序无错）
+    \item 软件测试的输入与输出
+\end{itemize}
+
+\subsubsection{7.4\quad 测试的本质与测试用例 \hfill（第159页）}
+\begin{itemize}
+    \item 软件测试的本质
+    \item \textbf{测试用例（Test Case）}—— 四元组：
+    \begin{enumerate}
+        \item 输入数据
+        \item 前置条件
+        \item 操作步骤
+        \item 预期输出
+    \end{enumerate}
+    \item 示例：测试用例的设计（"用户登录"）
+    \item 软件测试的步骤（4步）
+\end{itemize}
+
+\subsubsection{7.5\quad 软件测试原则 \hfill（第160页）}
+\begin{enumerate}
+    \item 测试应有计划、有组织地进行
+    \item 测试应追溯需求
+    \item Pareto原则（80\%的错误来自20\%的模块）
+    \item 穷举测试是不可能的
+    \item 第三方测试更有效
+    \item 测试用例应长期保留（回归测试用）
+    \item 避免测试自己编写的程序
+    \item 不仅要测试正常情况，还要测试异常情况
+\end{enumerate}
+
+\subsection{Part 3\quad 软件测试分类 \hfill（第160--166页）}
+
+\subsubsection{7.6\quad 测试分类概述 \hfill（第161页）}
+\begin{itemize}
+    \item 静态测试 vs 动态测试
+    \item 白盒测试 vs 黑盒测试 vs 灰盒测试
+    \begin{itemize}
+        \item 白盒测试：知道内部结构，测试内部逻辑
+        \item 黑盒测试：不知道内部结构，测试功能
+        \item 灰盒测试：部分知道内部结构
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{7.7\quad 白盒测试（White-Box Testing）\hfill（第161--164页）}
+\begin{itemize}
+    \item 白盒测试用例设计的指导原则
+    \item \textbf{语句覆盖（Statement Coverage）}
+    \begin{itemize}
+        \item 每条语句至少执行一次
+    \end{itemize}
+    \item \textbf{判定覆盖（Branch Coverage / 分支覆盖）}
+    \begin{itemize}
+        \item 每个判定的每个分支至少执行一次
+    \end{itemize}
+    \item \textbf{组合覆盖（Condition Coverage）}
+    \begin{itemize}
+        \item 每个条件的所有可能组合至少执行一次
+    \end{itemize}
+    \item \textbf{基本路径测试（Basis Path Testing）}
+    \begin{itemize}
+        \item 步骤1：根据程序逻辑画出流程图
+        \item 步骤2：将流程图转换为流图（Flow Graph）
+        \begin{itemize}
+            \item 流图中的判定点不应含复合条件
+        \end{itemize}
+        \item 步骤3：确定基本路径集合
+        \begin{itemize}
+            \item 圈复杂度 V(G) = E - N + 2（或 P + 1，或 判定节点数 + 1）
+        \end{itemize}
+        \item 步骤4：针对测试路径设计测试用例
+        \item 步骤5：运行程序检验测试用例
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{7.8\quad 黑盒测试（Black-Box Testing）\hfill（第165--166页）}
+\begin{itemize}
+    \item 黑盒测试的思想、依据、特点
+    \item \textbf{等价分类法（Equivalence Partitioning）}
+    \begin{itemize}
+        \item 有效等价类
+        \item 无效等价类
+        \item 实例：等价类划分法（三角形问题）
+    \end{itemize}
+    \item \textbf{边界值分析法（Boundary Value Analysis）}
+    \begin{itemize}
+        \item 原则：边界值、边界值±1
+        \item 示例
+    \end{itemize}
+\end{itemize}
+
+\subsection{Part 4\quad 软件测试过程 \hfill（第167--172页）}
+
+\subsubsection{7.9\quad 软件测试活动层次 \hfill（第167页）}
+\begin{itemize}
+    \item 软件测试活动（5个层次）：
+    \begin{enumerate}
+        \item 单元测试（Unit Testing）
+        \item 集成测试（Integration Testing）
+        \item 确认测试（Validation Testing）
+        \item 系统测试（System Testing）
+        \item 验收测试（Acceptance Testing）
+    \end{enumerate}
+\end{itemize}
+
+\subsubsection{7.10\quad 单元测试 \hfill（第167--168页）}
+\begin{itemize}
+    \item 程序单元测试的依据和对象
+    \item 谁负责开展程序单元测试？（通常由开发人员）
+    \item 单元测试技术（驱动模块 / 桩模块）
+    \item 单元测试工具（JUnit / C++Test / pytest等）
+\end{itemize}
+
+\subsubsection{7.11\quad 集成测试 \hfill（第168--169页）}
+\begin{itemize}
+    \item 集成测试的对象、技术、内容
+    \item \textbf{集成测试策略：}
+    \begin{itemize}
+        \item 大爆炸集成（Big Bang）—— 一次性集成所有模块
+        \item 自顶向下集成（Top-Down）—— 需要桩模块
+        \item 自底向上集成（Bottom-Up）—— 需要驱动模块
+        \item 三明治集成（Sandwich）—— 结合自顶向下和自底向上
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{7.12\quad 确认测试与系统测试 \hfill（第169--171页）}
+\begin{itemize}
+    \item 确认测试（Validation Testing）—— 验证是否满足需求
+    \item 功能测试
+    \item \textbf{非功能性测试：}
+    \begin{itemize}
+        \item 性能测试（Performance Testing）
+        \item 压力测试（Stress Testing）
+        \item 容量测试（Volume Testing）
+        \item 安全性测试（Security Testing）
+        \item 恢复测试（Recovery Testing）
+        \item 用户界面测试（UI Testing）
+        \item 兼容性测试（Compatibility Testing）
+        \item 可用性测试（Usability Testing）
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{7.13\quad 验收测试与回归测试 \hfill（第171--172页）}
+\begin{itemize}
+    \item 验收测试（Acceptance Testing）
+    \item $\alpha$测试（Alpha Testing）—— 开发方内部测试
+    \item $\beta$测试（Beta Testing）—— 用户方测试
+    \item \textbf{回归测试（Regression Testing）}—— 修改后重新测试
+    \begin{itemize}
+        \item 目的：确保修改未引入新缺陷
+        \item 方法：重新执行原有测试用例
+    \end{itemize}
+    \item 测试过程与测试文档
+\end{itemize}
+
+\subsection{Part 5\quad 软件测试管理 \hfill（第172--175页）}
+
+\subsubsection{7.14\quad 测试组织与计划 \hfill（第172--173页）}
+\begin{itemize}
+    \item 成立软件测试组织（独立于开发团队）
+    \item 软件测试的输出
+    \item 制定和实施软件测试计划：
+    \begin{itemize}
+        \item 标识符、测试项、测试策略
+        \item 交付物、任务、环境、进度、风险
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{7.15\quad 软件测试八项流程 \hfill（第173--175页）}
+\begin{enumerate}
+    \item 熟悉项目情况
+    \item 排序测试需求 —— 测试需求排序示例
+    \item 定义测试策略
+    \item 设计测试用例
+    \item 估计测试工作量
+    \item 配置测试资源
+    \item 执行测试
+    \item 书写测试报告
+\end{enumerate}
+
+\vspace{0.3cm}
+% ============================================
+% 第8章
+% ============================================
+\section{第8章：软件部署、维护与演化 \hfill（第175--186页）}
+
+\subsection{Part 1\quad 软件部署 \hfill（第175--180页）}
+
+\subsubsection{8.1\quad 软件部署的概念 \hfill（第176页）}
+\begin{itemize}
+    \item 何为软件部署（收集、打包、安装、配置、发布）
+    \item 软件运行环境
+    \item 安装和配置运行环境
+    \item 安装和配置软件系统
+    \item 软件与其运行环境的关系
+\end{itemize}
+
+\subsubsection{8.2\quad 部署的挑战与原则 \hfill（第177页）}
+\begin{itemize}
+    \item 软件间的关系：纵向层次性 / 横向相关性
+    \item 软件运行环境的变化
+    \item 软件部署的主要问题和挑战
+    \item 软件部署的原则：
+    \begin{enumerate}
+        \item 最小化原则
+        \item 相关性原则
+        \item 适应性原则
+    \end{enumerate}
+\end{itemize}
+
+\subsubsection{8.3\quad 部署方式与方法 \hfill（第178--180页）}
+\begin{itemize}
+    \item 单机部署方式
+    \item 分布式部署
+    \item 软件部署方法：
+    \begin{itemize}
+        \item 基于操作系统的部署
+        \item 基于软件中间件的部署
+        \item 基于容器的部署（Docker）
+    \end{itemize}
+    \item \textbf{云原生（Cloud Native）}
+    \item 基于部署图（Deployment Diagram）规划部署
+    \item 部署工具：
+    \begin{itemize}
+        \item Fat jar（基于语言的部署）
+        \item Docker（基于容器的部署）
+        \item Jenkins（基于流水线的部署）
+    \end{itemize}
+\end{itemize}
+
+\subsection{Part 2\quad 软件维护 \hfill（第180--184页）}
+
+\subsubsection{8.4\quad 软件维护的概念与特点 \hfill（第180--181页）}
+\begin{itemize}
+    \item 软件也需要进行维护
+    \item 何为软件维护
+    \item 软件维护的特点：同步性、周期长、费用高、难度大
+    \item 软件维护成本模型：$M = P + K \cdot e^{(c-d)}$
+\end{itemize}
+
+\subsubsection{8.5\quad 软件维护分类 \hfill（第181--182页）}
+\begin{enumerate}
+    \item \textbf{纠错性维护（Corrective Maintenance）}—— 修复发现的缺陷
+    \item \textbf{适应性维护（Adaptive Maintenance）}—— 适应外部环境变化
+    \item \textbf{完善性维护（Perfective Maintenance）}—— 提升已有功能和性能
+    \item \textbf{预防性维护（Preventive Maintenance）}—— 预防潜在问题
+\end{enumerate}
+
+\subsubsection{8.6\quad 维护的问题与可维护性 \hfill（第182--183页）}
+\begin{itemize}
+    \item 软件维护需要解决的问题：
+    \begin{itemize}
+        \item 人员的问题
+        \item 软件制品的问题
+        \item 维护副作用的问题
+    \end{itemize}
+    \item 软件的可维护性（4个特性）：
+    \begin{enumerate}
+        \item 可理解性（Understandability）
+        \item 可测试性（Testability）
+        \item 可修改性（Modifiability）
+        \item 可移植性（Portability）
+    \end{enumerate}
+\end{itemize}
+
+\subsubsection{8.7\quad 软件维护过程 \hfill（第183--184页）}
+\begin{itemize}
+    \item 软件维护过程
+    \item 软件维护工作流程（12步）
+    \item 维护管理文档
+    \item 维护文档
+\end{itemize}
+
+\subsection{Part 3\quad 软件演化 \hfill（第184--186页）}
+
+\subsubsection{8.8\quad 软件逻辑老化 \hfill（第184页）}
+\begin{itemize}
+    \item 何为软件逻辑老化（Software Aging）
+    \item 软件逻辑老化的现象
+    \item 软件逻辑老化的原因：
+    \begin{itemize}
+        \item 缺乏变更
+        \item 质量下降
+        \item 变更成本增加
+        \item 负面变更
+        \item 用户满意度降低
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{8.9\quad 软件演化及解决方法 \hfill（第185--186页）}
+\begin{itemize}
+    \item 软件演化及其特点（4个特性）
+    \item 解决方法：
+    \begin{enumerate}
+        \item \textbf{代码重组（Code Restructuring）}
+        \item \textbf{设计重构（Design Refactoring）}
+        \item \textbf{逆向工程（Reverse Engineering）}—— 从代码反推设计
+        \item \textbf{再工程（Re-engineering）}—— 重新设计再实现
+    \end{enumerate}
+    \item 小结
+\end{itemize}
+
+\vspace{0.5cm}
+\begin{center}
+    \rule{\textwidth}{1pt}\\[0.3cm]
+    {\large\bfseries —— 全册目录结束 ——}\\[0.3cm]
+    {\normalsize 共8章 \quad 186页 \quad 祝考试顺利！}
+\end{center}
+
+\end{document}

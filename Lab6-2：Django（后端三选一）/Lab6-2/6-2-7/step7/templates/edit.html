@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+</head>
+<link rel="stylesheet" href="/static/layui/css/layui.css"/>
+
+<body>
+<div class="layui-container">
+    <div class="layui-row">
+        <blockquote class="layui-elem-quote layui-quote-nm">修改用户</blockquote>
+    </div>
+    <div class="layui-row" style="margin-top: 25px;">
+        <form class="layui-form" action="/updateUserInfo" method="post">
+            {% csrf_token %}
+			
+			<!----------Begin---------->
+			
+            <input name="id" value="{{ data.id }}" type="hidden">
+            <div class="layui-form-item">
+                <label class="layui-form-label">用户名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="username" required lay-verify="required" placeholder="请输入用户名"
+                           autocomplete="off" class="layui-input" value="{{ data.username }}">
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">签名</label>
+                <div class="layui-input-block">
+                    <textarea name="sign" placeholder="请输入内容" class="layui-textarea" >{{ data.sign }}</textarea>
+                </div>
+            </div>
+			
+			<!----------End---------->
+
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit>确定修改</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+
+<script src="/static/layui/layui.all.js"></script>
+<script src="/static/layui/jquery-3.1.1.min.js"></script>
+<script>
+    layui.use('form', function () {
+        var form = layui.form;
+
+        form.render();
+
+    });
+</script>
+
+</html>
+
+

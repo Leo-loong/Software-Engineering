@@ -1,0 +1,10 @@
+// 第一个测试：名称为"Status Test"，检验响应状态码为200
+pm.test("Status Test", function () {
+    pm.response.to.have.status(200);
+});
+
+// 第二个测试：名称为"Body Test"，检验响应体JSON中"code"的值为0
+pm.test("Body Test", function () {
+    const jsonData = pm.response.json();
+    pm.expect(jsonData.code).to.eql(0);
+});

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    <script src="/static/layui/layui.all.js"></script>
+    <script src="/static/layui/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+<div class="layui-container">
+    <div class="layui-row">
+        <div class="layui-col-md12">
+            <blockquote class="layui-elem-quote layui-quote-nm">关联查询</blockquote>
+        </div>
+        <div class="layui-col-md12">
+            <form class="layui-form" action="/index" method="post">
+                {% csrf_token %}
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">图书名称</label>
+                        <div class="layui-input-inline">
+                            <select name="btitle" lay-verify="required">
+
+
+								<!---------- Begin ---------->
+                                {% for x in bookList %}
+                                    <option value="{{ x.btitle }}">{{ x.btitle }}</option>
+                                {% endfor %}
+								<!---------- End ---------->
+
+
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <button class="layui-btn" lay-submit lay-filter="formDemo">查询</button>
+                        <button type="layui-btn" class="layui-btn layui-btn-primary" id="reset_btn">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="layui-col-md12">
+            <table class="layui-table">
+                <colgroup>
+                    <col width="100">
+                    <col width="100">
+                    <col width="100">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>英雄姓名</th>
+                    <th>英雄性别</th>
+                    <th>英雄描述信息</th>
+                </tr>
+                </thead>
+                <tbody>
+
+				<!---------- Begin ---------->
+                {% for d in list %}
+                    <tr>
+                        <td>{{ d.hname }}</td>
+                        <td>{{ d.hgender }}</td>
+                        <td>{{ d.hcomment }}</td>
+                    </tr>
+                {% endfor %}
+				<!---------- End ---------->
+				
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>
+<script>
+    layui.use('form', function () {
+        var form = layui.form;
+        form.render();
+    });
+</script>
+</body>
+</html>

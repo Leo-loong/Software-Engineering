@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    <script src="/static/layui/layui.all.js"></script>
+    <script src="/static/layui/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+<div class="layui-container">
+    <div class="layui-row">
+        <div class="layui-col-md12">
+            <blockquote class="layui-elem-quote layui-quote-nm">用户信息列表</blockquote>
+        </div>
+        <div class="layui-col-md12">
+            <table class="layui-table">
+                <colgroup>
+                    <col width="100">
+                    <col width="100">
+                    <col width="100">
+                    <col width="200">
+                    <col width="50">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>用户名</th>
+                    <th>性别</th>
+                    <th>签名</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+				<!----------Begin---------->
+                {% for d in list %}
+                    <tr>
+                        <td>{{ d.id }}</td>
+                        <td>{{ d.username }}</td>
+                        <td>{{ d.sex }}</td>
+                        <td>{{ d.sign }}</td>
+                        <td>
+                            <a href="{% url 'editusers' d.id %}" class="layui-btn">编辑</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+				<!----------End---------->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
